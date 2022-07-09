@@ -1,0 +1,148 @@
+#                          ﱦ 齃     ﮂ  ﵁ 爵        ﭵ     ﱦ  ﰊ 異 ﴱ אַ  'Y⃣'
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+############## BAR ##############
+sketchybar --bar height=38 \
+                 y_offset=5 \
+                 blur_radius=20 \
+                 position=top \
+                 padding_left=6 \
+                 padding_right=6 \
+                 margin=10 \
+                 corner_radius=12 \
+                 color=0xe6191724 \
+                 shadow=off
+
+############## GLOBAL DEFAULTS ##############
+sketchybar --default updates=when_shown \
+                     icon.font="SF Pro:Semibold:15.0" \
+                     icon.color=0xff26233a \
+                     icon.highlight_color=0xffE48FA8 \
+                     label.font="SF Pro:SemiBold:15.0" \
+                     label.color=0xffECEFF4 \
+                     background.corner_radius=6 \
+                     background.height=28
+
+sketchybar --add item logo left \
+           --set logo icon=􀣺 \
+                 icon.color=0xff26233a \
+                 icon.padding_left=12 \
+                 icon.padding_right=12 \
+                 background.color=0xffebbcba \
+                 background.padding_right=11 \
+                 background.padding_left=0 \
+                 click_script="sketchybar --update"
+
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACES=()
+
+for i in "${!SPACE_ICONS[@]}"
+do
+  sid=$(($i+1))
+  SPACES+=(space.$sid)
+  sketchybar --add space space.$sid left \
+             --set space.$sid associated_space=$sid \
+                              icon=${SPACE_ICONS[i]} \
+                              icon.padding_left=20 \
+                              icon.padding_right=20 \
+                              icon.color=0xffe0def4 \
+                              icon.highlight_color=0xffebbcba \
+                              background.padding_left=-6 \
+                              background.padding_right=-6 \
+                              background.color=0xff3a3647 \
+                              background.drawing=on \
+                              label.drawing=off \
+                              click_script="yabai -m space --focus $sid"
+done
+
+sketchybar --add item space_separator left                            \
+           --set space_separator icon=                               \
+                                background.padding_left=16           \
+                                 background.padding_right=16          \
+                                 label.drawing=off                    \
+                                 icon.color=0xff908caa                \
+                                 icon.font="FiraCode Nerd Font:20.0"  \
+                                                                      \
+           --add item window_title left                               \
+           --set window_title    script="$PLUGIN_DIR/window_title.sh" \
+                                 icon.drawing=off                     \
+                                 label.color=0xffe0def4               \
+           --subscribe window_title front_app_switched
+
+############## ITEM DEFAULTS ###############
+sketchybar --default label.padding_left=6 \
+                     label.padding_right=6 \
+                     icon.padding_left=30 \
+                     icon.padding_right=6 \
+                     icon.font="SF Pro:Bold:20.0" \
+                     background.height=28 \
+
+sketchybar --add item spot_logo center \
+           --set spot_logo icon= \
+                           icon.font="FiraCode Nerd Font:Bold:22.0" \
+                           label.drawing=off \
+                           icon.color=0xff1db954 \
+
+sketchybar --add item spot center \
+           --set spot update_freq=1 \
+                      icon.drawing=off \
+                      updates=on \
+                      script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
+                      background.padding_left=0
+
+############## RIGHT ITEMS ##############
+sketchybar --add item time right \
+           --set time update_freq=1 \
+                      icon.drawing=off \
+                      script="~/.config/sketchybar/plugins/clock.sh" \
+                      background.padding_left=0 \
+                      background.padding_right=4
+
+
+sketchybar --add item time_logo right\
+           --set time_logo icon=􁆹 \
+                           label.drawing=off \
+                           icon.color=0xffeb6f92 \
+                           label.drawing=off \
+                           background.drawing=off \
+
+# sketchybar --add item date right \
+#            --set date update_freq=1000 \
+#                       icon.drawing=off \
+#                       script="~/.config/sketchybar/plugins/date.sh" \
+#                       background.padding_left=0
+#
+# sketchybar --add item clock_logo right\
+#            --set clock_logo icon=􀒏 \
+#                             icon.color=0xfff6c177\
+#                             label.drawing=off \
+#                             background.drawing=off \
+
+sketchybar --add item net right \
+           --set net script="~/.config/sketchybar/plugins/net.sh" \
+                     icon.drawing=off \
+                     background.padding_left=0
+
+sketchybar --add item net_logo right \
+           --set net_logo icon=􀷗 \
+                     icon.color=0xffc4a7e7 \
+                     label.drawing=off \
+                     background.drawing=off \
+
+sketchybar --add item battery right \
+           --set battery update_freq=3 \
+                         icon.drawing=off \
+                         script="~/.config/sketchybar/plugins/power.sh" \
+                         background.padding_left=0
+
+sketchybar --add item power_logo right \
+           --set power_logo icon=􀋨 \
+                 icon.color=0xff9ccfd8 \
+                 label.drawing=off \
+                 background.drawing=off \
+
+############## FINALIZING THE SETUP ##############
+sketchybar --update
+
+echo "sketchybar configuration loaded..."
