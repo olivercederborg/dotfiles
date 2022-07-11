@@ -2,15 +2,6 @@ local wezterm = require("wezterm")
 local colors = require("lua/rose-pine").colors()
 local window_frame = require("lua/rose-pine").window_frame()
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	if tabs.title then
-		return {
-			{ Text = "  " .. tabs.title .. "  " },
-		}
-	end
-	return tabs.title
-end)
-
 return {
 	default_cursor_style = "BlinkingBlock",
 	colors = colors,
@@ -21,7 +12,7 @@ return {
 	line_height = 1.8,
 
 	-- colorscheme
-	color_scheme = "rose-pine",
+	color_scheme = "rose-pine-moon",
 	window_background_opacity = 0.97,
 
 	-- tab bar
