@@ -3,4 +3,4 @@ My dotfiles for neovim, yabai, skhd, zsh and more. Managed with [yadm](https://y
 
 ## Screenshots
 ### Wezterm and Neovim
-![Wezterm and Neovim](https://user-images.githubusercontent.com/47901349/178115049-26ff24b3-4c8a-4022-8d9f-68ffe5bbbb9b.png)
+![Wezterm and Neovim](https://user-images.githubusercontent.com/47901349/178358504-0e798680-23a4-4008-afe1-0de5ebc8c864.png)
