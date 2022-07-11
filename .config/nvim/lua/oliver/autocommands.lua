@@ -7,7 +7,3 @@ autocmd("TextYankPost", {
   command = "silent! lua vim.highlight.on_yank()",
   group = yankGrp,
 })
-
-autocmd("ColorScheme", {
-  command = "silent! lua require('lightspeed').init_highlight(true)",
-})

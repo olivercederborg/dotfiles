@@ -4,7 +4,7 @@ if not present then
 end
 
 npairs.setup({
-	check_ts = true,
+  check_ts = true,
 	ts_config = {
 		lua = { "string", "source" },
 		javascript = { "string", "template_string" },
@@ -12,7 +12,7 @@ npairs.setup({
 	},
 	disable_filetype = { "TelescopePrompt", "spectre_panel" },
 	fast_wrap = {
-		map = "<leader>fw",
+		-- map = "<leader>fw",
 		chars = { "{", "[", "(", '"', "'" },
 		pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
 		offset = 0, -- Offset from pattern match

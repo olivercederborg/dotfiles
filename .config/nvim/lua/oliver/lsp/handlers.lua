@@ -26,7 +26,7 @@ M.setup = function()
     float = {
       focusable = false,
       style = "minimal",
-      border = "single",
+      border = nil,
       source = "always",
       header = "",
       prefix = "",
@@ -36,11 +36,11 @@ M.setup = function()
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "single",
+    border = nil
   })
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "single",
+    border = nil
   })
 end
 
@@ -64,20 +64,19 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>.", "<cmd>CodeActionMenu<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "single" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
     "gl",
-    '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
+    '<cmd>lua vim.diagnostic.open_float({ border = "single" })<CR>',
     opts
   )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "single" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
-
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = false })' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ async = false })' ]])
 end
 
 M.on_attach = function(client, bufnr)
@@ -90,13 +89,13 @@ M.on_attach = function(client, bufnr)
     local formatGroup = vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       command = "lua vim.lsp.buf.format({ async = false })",
-      group = formatGroup
+      group = formatGroup,
     })
 
     local ts_utils = require("nvim-lsp-ts-utils")
 
     ts_utils.setup({
-      update_imports_on_move = true
+      update_imports_on_move = true,
     })
     ts_utils.setup_client(client)
 

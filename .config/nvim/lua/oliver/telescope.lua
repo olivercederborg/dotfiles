@@ -8,9 +8,11 @@ if not present_ then
 	return
 end
 
+-- require("oliver.highlight").load_highlight("telescope")
+
 vim.g.theme_switcher_loaded = true
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
@@ -67,6 +69,6 @@ telescope.setup {
 	pickers = {
 		find_files = {
 			theme = "dropdown",
-		}
+		},
 	},
-}
+})
