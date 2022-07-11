@@ -1,6 +1,25 @@
 #                          ﱦ 齃     ﮂ  ﵁ 爵        ﭵ     ﱦ  ﰊ 異 ﴱ אַ  'Y⃣'
 
+############## VARS ##############
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+############## ROSE PINE PALETTE ##############
+BASE=0xff232136
+SURFACE=0xff2a273f
+SURFACE90=0xe62a273f
+OVERLAY=0xff393552
+MUTED=0xff6e6a86
+SUBTLE=0xff908caa
+TEXT=0xffe0def4
+LOVE=0xffeb6f92
+GOLD=0xfff6c177
+ROSE=0xffea9a97
+PINE=0xff3e8fb0
+FOAM=0xff9ccfd8
+IRIS=0xffc4a7e7
+HL_LOW=0xff2a283e
+HL_MED=0xff44415a
+HL_HIGH=0xff56526e
 
 ############## BAR ##############
 sketchybar --bar height=38 \
@@ -11,25 +30,25 @@ sketchybar --bar height=38 \
                  padding_right=6 \
                  margin=10 \
                  corner_radius=12 \
-                 color=0xe6191724 \
+                 color=${SURFACE90} \
                  shadow=off
 
 ############## GLOBAL DEFAULTS ##############
 sketchybar --default updates=when_shown \
                      icon.font="SF Pro:Semibold:15.0" \
-                     icon.color=0xff26233a \
-                     icon.highlight_color=0xffE48FA8 \
+                     icon.color=${SUBTLE} \
+                     icon.highlight_color=${TEXT} \
                      label.font="SF Pro:SemiBold:15.0" \
-                     label.color=0xffECEFF4 \
+                     label.color=${TEXT} \
                      background.corner_radius=6 \
                      background.height=28
 
 sketchybar --add item logo left \
-           --set logo icon=􀣺 \
-                 icon.color=0xff26233a \
+           --set logo icon=􀣺  \
+                 icon.color=${BASE} \
                  icon.padding_left=12 \
                  icon.padding_right=12 \
-                 background.color=0xffebbcba \
+                 background.color=${ROSE} \
                  background.padding_right=11 \
                  background.padding_left=0 \
                  click_script="sketchybar --update"
@@ -46,11 +65,11 @@ do
                               icon=${SPACE_ICONS[i]} \
                               icon.padding_left=20 \
                               icon.padding_right=20 \
-                              icon.color=0xffe0def4 \
-                              icon.highlight_color=0xffebbcba \
+                              icon.color=${TEXT} \
+                              icon.highlight_color=${ROSE} \
                               background.padding_left=-6 \
                               background.padding_right=-6 \
-                              background.color=0xff3a3647 \
+                              background.color=${OVERLAY} \
                               background.drawing=on \
                               label.drawing=off \
                               click_script="yabai -m space --focus $sid"
@@ -61,13 +80,13 @@ sketchybar --add item space_separator left                            \
                                 background.padding_left=16           \
                                  background.padding_right=16          \
                                  label.drawing=off                    \
-                                 icon.color=0xff908caa                \
+                                 icon.color=${HL_HIGH}                \
                                  icon.font="FiraCode Nerd Font:20.0"  \
                                                                       \
            --add item window_title left                               \
            --set window_title    script="$PLUGIN_DIR/window_title.sh" \
                                  icon.drawing=off                     \
-                                 label.color=0xffe0def4               \
+                                 label.color=${TEXT}                  \
            --subscribe window_title front_app_switched
 
 ############## ITEM DEFAULTS ###############
@@ -82,7 +101,7 @@ sketchybar --add item spot_logo center \
            --set spot_logo icon= \
                            icon.font="FiraCode Nerd Font:Bold:22.0" \
                            label.drawing=off \
-                           icon.color=0xff1db954 \
+                           icon.color=${PINE} \
 
 sketchybar --add item spot center \
            --set spot update_freq=1 \
@@ -103,21 +122,9 @@ sketchybar --add item time right \
 sketchybar --add item time_logo right\
            --set time_logo icon=􁆹 \
                            label.drawing=off \
-                           icon.color=0xffeb6f92 \
+                           icon.color=${GOLD} \
                            label.drawing=off \
                            background.drawing=off \
-
-# sketchybar --add item date right \
-#            --set date update_freq=1000 \
-#                       icon.drawing=off \
-#                       script="~/.config/sketchybar/plugins/date.sh" \
-#                       background.padding_left=0
-#
-# sketchybar --add item clock_logo right\
-#            --set clock_logo icon=􀒏 \
-#                             icon.color=0xfff6c177\
-#                             label.drawing=off \
-#                             background.drawing=off \
 
 sketchybar --add item net right \
            --set net script="~/.config/sketchybar/plugins/net.sh" \
@@ -126,7 +133,7 @@ sketchybar --add item net right \
 
 sketchybar --add item net_logo right \
            --set net_logo icon=􀷗 \
-                     icon.color=0xffc4a7e7 \
+                     icon.color=${IRIS} \
                      label.drawing=off \
                      background.drawing=off \
 
@@ -138,7 +145,7 @@ sketchybar --add item battery right \
 
 sketchybar --add item power_logo right \
            --set power_logo icon=􀋨 \
-                 icon.color=0xff9ccfd8 \
+                 icon.color=${FOAM} \
                  label.drawing=off \
                  background.drawing=off \
 
