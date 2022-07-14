@@ -97,18 +97,18 @@ sketchybar --default label.padding_left=6 \
                      icon.font="SF Pro:Bold:20.0" \
                      background.height=28 \
 
-sketchybar --add item spot_logo center \
-           --set spot_logo icon= \
-                           icon.font="FiraCode Nerd Font:Bold:22.0" \
-                           label.drawing=off \
-                           icon.color=${PINE} \
-
-sketchybar --add item spot center \
-           --set spot update_freq=1 \
-                      icon.drawing=off \
-                      updates=on \
-                      script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
-                      background.padding_left=0
+# sketchybar --add item spot_logo center \
+#            --set spot_logo icon= \
+#                            icon.font="FiraCode Nerd Font:Bold:22.0" \
+#                            label.drawing=off \
+#                            icon.color=${PINE} \
+#
+# sketchybar --add item spot center \
+#            --set spot update_freq=1 \
+#                       icon.drawing=off \
+#                       updates=on \
+#                       script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
+#                       background.padding_left=0
 
 ############## RIGHT ITEMS ##############
 sketchybar --add item time right \
