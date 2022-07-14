@@ -5,5 +5,5 @@ local autocmd = vim.api.nvim_create_autocmd
 local yankGrp = autogroup("YankHighlight", { clear = true })
 autocmd("TextYankPost", {
   command = "silent! lua vim.highlight.on_yank()",
-  group = yankGrp,
+	group = yankGrp,
 })

@@ -102,7 +102,7 @@ map("n", "<leader>m", ":TroubleToggle<CR>", opts)
 -- Git
 map("n", "<leader>gg", ":LazyGit<CR>", opts)
 
--- Copilot 
+-- Copilot
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-g>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 

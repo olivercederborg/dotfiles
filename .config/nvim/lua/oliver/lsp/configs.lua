@@ -3,12 +3,12 @@ if not present then
 	return
 end
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
 local servers = { "html", "cssls", "emmet_ls", "tsserver", "jsonls", "sumneko_lua", "gopls", "tailwindcss" }
 
 lsp_installer.setup {
-	ensure_installed = servers
+	ensure_installed = servers,
 }
 
 for _, server in pairs(servers) do

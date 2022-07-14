@@ -12,7 +12,7 @@ end
 
 vim.g.theme_switcher_loaded = true
 
-telescope.setup({
+telescope.setup {
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
@@ -71,4 +71,4 @@ telescope.setup({
 			theme = "dropdown",
 		},
 	},
-})
+}

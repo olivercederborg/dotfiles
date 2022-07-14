@@ -1,13 +1,13 @@
 local M = {}
 
 M.load_highlight = function(group)
-   if type(group) == "string" then
-      group = require("highlight.parts." .. group)
-   end
+	if type(group) == "string" then
+		group = require("highlight.parts." .. group)
+	end
 
-   for hl, col in pairs(group) do
-      vim.api.nvim_set_hl(0, hl, col)
-   end
+	for hl, col in pairs(group) do
+		vim.api.nvim_set_hl(0, hl, col)
+	end
 end
 
 return M
