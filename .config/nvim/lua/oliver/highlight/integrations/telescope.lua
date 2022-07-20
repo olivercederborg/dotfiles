@@ -1,4 +1,4 @@
-local colors = require("highlight.colors").rose_pine
+local colors = require("oliver.highlight.colors").rose_pine()
 
 return {
 	TelescopeBorder = {

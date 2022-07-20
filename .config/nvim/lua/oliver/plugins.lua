@@ -47,9 +47,7 @@ return packer.startup(function(use)
 	use {
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup {
-				-- Configuration here, or leave empty to use defaults
-			}
+			require("nvim-surround").setup()
 		end,
 	}
 	use {
@@ -58,14 +56,41 @@ return packer.startup(function(use)
 			require("colorizer").setup()
 		end,
 	}
-
-	-- Alpha - greeter
 	use {
-		"goolord/alpha-nvim",
+		"abecodes/tabout.nvim",
 		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
+			require("tabout").setup {
+				tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+				backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+				act_as_tab = true, -- shift content if tab out is not possible
+				act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+				default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+				default_shift_tab = "<C-d>", -- reverse shift default action,
+				enable_backwards = true, -- well ...
+				completion = true, -- if the tabkey is used in a completion pum
+				tabouts = {
+					{ open = "'", close = "'" },
+					{ open = '"', close = '"' },
+					{ open = "`", close = "`" },
+					{ open = "(", close = ")" },
+					{ open = "[", close = "]" },
+					{ open = "{", close = "}" },
+				},
+				ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+				exclude = {}, -- tabout will ignore these filetypes
+			}
 		end,
+		wants = { "nvim-treesitter" }, -- or require if not used so far
+		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
 	}
+
+	-- -- Alpha - greeter
+	-- use {
+	-- 	"goolord/alpha-nvim",
+	-- 	config = function()
+	-- 		require("alpha").setup(require("alpha.themes.dashboard").config)
+	-- 	end,
+	-- }
 
 	-- Treesitter
 	use {
@@ -75,16 +100,19 @@ return packer.startup(function(use)
 	use "JoosepAlviste/nvim-ts-context-commentstring"
 	use "windwp/nvim-ts-autotag"
 	use "nvim-treesitter/nvim-treesitter-textobjects"
+	use "nvim-treesitter/playground"
 
 	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
+	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-buffer" -- buffer completions
 	use "hrsh7th/cmp-path" -- path completions
 	use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use "hrsh7th/nvim-cmp" -- The completion plugin
+
 	use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-nvim-lua"
 	use "nvim-lua/completion-nvim"
+	use "onsails/lspkind.nvim"
 
 	-- Manage buffers
 	use {
@@ -180,26 +208,30 @@ return packer.startup(function(use)
 		"rcarriga/nvim-notify",
 		config = function()
 			vim.notify = require "notify"
+
+			require("notify").setup {
+				background_colour = "#2a273f",
+			}
 		end,
 	}
 
 	-- Wildmenu
-	use {
-		"gelguy/wilder.nvim",
-		config = function()
-			local wilder = require "wilder"
-			wilder.setup { modes = { ":", "/", "?" } }
-
-			wilder.set_option(
-				"renderer",
-				wilder.popupmenu_renderer {
-					highlighter = wilder.basic_highlighter(),
-					left = { " ", wilder.popupmenu_devicons() },
-					right = { " ", wilder.popupmenu_scrollbar() },
-				}
-			)
-		end,
-	}
+	-- use {
+	-- 	"gelguy/wilder.nvim",
+	-- 	config = function()
+	-- 		local wilder = require "wilder"
+	-- 		wilder.setup { modes = { ":", "/", "?" } }
+	--
+	-- 		wilder.set_option(
+	-- 			"renderer",
+	-- 			wilder.popupmenu_renderer {
+	-- 				highlighter = wilder.basic_highlighter(),
+	-- 				left = { " ", wilder.popupmenu_devicons() },
+	-- 				right = { " ", wilder.popupmenu_scrollbar() },
+	-- 			}
+	-- 		)
+	-- 	end,
+	-- }
 
 	use { "numtostr/BufOnly.nvim", cmd = "BufOnly" }
 
@@ -228,10 +260,15 @@ return packer.startup(function(use)
 	use "github/copilot.vim"
 
 	-- Themes
+	-- use {
+	-- 	"rose-pine/neovim",
+	-- 	as = "rose-pine",
+	-- 	tag = "v1.*",
+	-- }
 	use {
-		"rose-pine/neovim",
-		as = "rose-pine",
-		tag = "v1.*",
+		"~/Develop/sideprojects/poimandres.nvim",
+		as = "poimandres",
+		-- commit = '09f53983bc1369fdef0c76a4365d91a7c9c51281'
 	}
 
 	-- Automatically set up your configuration after cloning packer.nvim

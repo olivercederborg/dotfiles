@@ -4,7 +4,7 @@ if not present then
 end
 
 configs.setup {
-	ensure_installed = { "html", "css", "javascript", "typescript", "python", "json", "lua", "jsdoc" },
+	ensure_installed = { "html", "css", "javascript", "typescript", "python", "json", "lua", "jsdoc", "tsx" },
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 
@@ -14,7 +14,7 @@ configs.setup {
 
 	highlight = {
 		enable = true, -- false will disable the whole extension
-		disable = { "" }, -- list of language that will be disabled
+		disable = { }, -- list of language that will be disabled
 		additional_vim_regex_highlighting = true,
 	},
 
@@ -80,10 +80,6 @@ configs.setup {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@call.outer",
-        ["ic"] = "@call.inner",
-        ["aC"] = "@class.outer",
-        ["iC"] = "@class.inner",
         ["aa"] = "@parameter.outer", -- thinking of it as an argument
       },
     },

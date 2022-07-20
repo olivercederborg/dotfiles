@@ -8,7 +8,7 @@ if not present_ then
 	return
 end
 
--- require("oliver.highlight").load_highlight("telescope")
+-- require("oliver.highlight").load_highlight "telescope"
 
 vim.g.theme_switcher_loaded = true
 
@@ -29,23 +29,23 @@ telescope.setup {
 		initial_mode = "insert",
 		selection_strategy = "reset",
 		sorting_strategy = "ascending",
-		layout_strategy = "vertical",
+		layout_strategy = "horizontal",
 		layout_config = {
-			vertical = {
+			horizontal = {
 				prompt_position = "top",
-				preview_height = 0.55,
-				results_height = 0.8,
-				width = 0.5,
-				height = 0.95,
+				preview_width = 0.5,
+				results_width = 0.5,
+				width = 0.7,
+				height = 0.85,
 			},
 		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
-		file_ignore_patterns = { "node_modules" },
+		file_ignore_patterns = { "node_modules", "package-lock" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
 		winblend = 0,
-		border = {},
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		border = true,
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 
@@ -66,9 +66,5 @@ telescope.setup {
 			},
 		},
 	},
-	pickers = {
-		find_files = {
-			theme = "dropdown",
-		},
-	},
+	pickers = {},
 }

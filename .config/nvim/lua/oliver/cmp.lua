@@ -8,42 +8,15 @@ if not snip_present then
 	return
 end
 
+local lspkind = require "lspkind"
+
 require("luasnip/loaders/from_vscode").lazy_load()
+-- require("oliver.highlight").load_highlight "cmp"
 
 local check_backspace = function()
 	local col = vim.fn.col "." - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
-
---   פּ ﯟ   some other good icons
-local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
 	snippet = {
@@ -94,20 +67,20 @@ cmp.setup {
 			"s",
 		}),
 	},
+	window = {
+		completion = {
+			-- border = "single"
+		},
+	},
 	formatting = {
-		fields = { "abbr", "kind", "menu" },
+		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
-			-- Kind icons
-			-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[LUA]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-			})[entry.source.name]
-			return vim_item
+			local kind = lspkind.cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = strings[1] .. " "
+			kind.menu = "    " .. strings[2]
+
+			return kind
 		end,
 	},
 	sources = {
@@ -121,13 +94,24 @@ cmp.setup {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-	window = {
-		-- documentation = {
-		-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		-- },
+	view = {
+		entries = { name = "custom", selection_order = "near_cursor" },
 	},
 	experimental = {
 		ghost_text = false,
-		native_menu = false,
 	},
 }
+
+-- cmp.setup.cmdline("/", {
+-- 	sources = {
+-- 		{ name = "nvim_lsp_document_symbol" },
+-- 		{ name = "buffer" },
+-- 	},
+-- })
+-- cmp.setup.cmdline(":", {
+-- 	sources = cmp.config.sources({
+-- 		{ name = "path" },
+-- 	}, {
+-- 		{ name = "cmdline" },
+-- 	}),
+-- })

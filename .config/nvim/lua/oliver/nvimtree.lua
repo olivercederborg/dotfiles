@@ -77,6 +77,7 @@ nvim_tree.setup {
 			list = {
 				{ key = "<C-k>", action = "" },
 				{ key = "E", action = "first_sibling" },
+				{ key = "O", action = "expand_all" },
 				{ key = "N", action = "last_sibling" },
 				{ key = "S", action = "system_open" },
 				{ key = "s", action = "search_node" },
