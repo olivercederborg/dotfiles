@@ -203,6 +203,13 @@ return packer.startup(function(use)
 		end,
 	}
 
+	use {
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("scrollbar").setup {}
+		end,
+	}
+
 	-- Notifications
 	use {
 		"rcarriga/nvim-notify",
@@ -216,22 +223,22 @@ return packer.startup(function(use)
 	}
 
 	-- Wildmenu
-	-- use {
-	-- 	"gelguy/wilder.nvim",
-	-- 	config = function()
-	-- 		local wilder = require "wilder"
-	-- 		wilder.setup { modes = { ":", "/", "?" } }
-	--
-	-- 		wilder.set_option(
-	-- 			"renderer",
-	-- 			wilder.popupmenu_renderer {
-	-- 				highlighter = wilder.basic_highlighter(),
-	-- 				left = { " ", wilder.popupmenu_devicons() },
-	-- 				right = { " ", wilder.popupmenu_scrollbar() },
-	-- 			}
-	-- 		)
-	-- 	end,
-	-- }
+	use {
+		"gelguy/wilder.nvim",
+		config = function()
+			local wilder = require "wilder"
+			wilder.setup { modes = { ":", "/", "?" } }
+
+			wilder.set_option(
+				"renderer",
+				wilder.popupmenu_renderer {
+					highlighter = wilder.basic_highlighter(),
+					left = { " ", wilder.popupmenu_devicons() },
+					right = { " ", wilder.popupmenu_scrollbar() },
+				}
+			)
+		end,
+	}
 
 	use { "numtostr/BufOnly.nvim", cmd = "BufOnly" }
 

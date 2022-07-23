@@ -15,8 +15,10 @@ null_ls.setup {
 	sources = {
 		formatting.prettierd,
 		formatting.stylua,
+    formatting.black,
 
 		diagnostics.eslint_d,
+		diagnostics.flake8,
 
 		code_actions.eslint_d,
 	},

@@ -5,7 +5,7 @@ end
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "emmet_ls", "tsserver", "jsonls", "sumneko_lua", "gopls", "tailwindcss" }
+local servers = { "html", "cssls", "emmet_ls", "tsserver", "jsonls", "sumneko_lua", "gopls", "tailwindcss", "pyright" }
 
 lsp_installer.setup {
 	ensure_installed = servers,

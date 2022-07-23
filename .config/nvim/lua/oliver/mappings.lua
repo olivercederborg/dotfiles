@@ -59,10 +59,27 @@ map("n", "<C-m", "<C-i>", opts)
 map({ "n", "v", "x", "o" }, "H", "N", opts)
 
 -- Quality of life
-map({ "n", "v" }, ";", ":", opts)
+map({ "n", "v" }, ";", ":", {
+  noremap = true,
+})
 
 -- Unhighlight search
 map("n", "<leader>l", ":nohlsearch<CR>", opts)
+
+-- Add word to search then replace
+map("n", "<leader>j", [[<cmd>let @/='\<'.expand('<cword>').'\>'<cr>"_ciw]])
+
+-- Add selection to search then replace
+map("x", "<leader>j", [[y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<cr>"_cgn]])
+
+-- Replace word under cursor
+map("n", "<leader>ss", "*:%s///c<left><left>", {
+	noremap = true,
+})
+-- Replace selection
+map("x", "<leader>ss", "y:%s/<C-r>0//c<left><left>", {
+	noremap = true,
+})
 
 -- Delete whole buffer
 map("n", "dae", ":%d<CR>", opts)

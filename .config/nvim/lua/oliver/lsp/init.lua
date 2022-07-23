@@ -3,8 +3,6 @@ if not present then
 	return
 end
 
-
-
 require "oliver.lsp.configs"
 require "oliver.lsp.null-ls"
 require("oliver.lsp.handlers").setup()
