@@ -93,6 +93,12 @@ map("n", "vae", "ggVG", opts)
 map("n", ",p", '"0p', opts)
 map("n", ",P", '"0P', opts)
 
+-- Duplicate line/selection up/down
+map("n", "<leader>dn", "yyp", opts)
+map("n", "<leader>de", "yyP", opts)
+map("x", "<leader>dn", "y'>p", opts)
+map("x", "<leader>de", "yP", opts)
+
 -- Comment
 -- Toggle comment on line
 map("n", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
