@@ -1,18 +1,17 @@
 local wezterm = require("wezterm")
-local colors = require("lua/rose-pine").colors()
-local window_frame = require("lua/rose-pine").window_frame()
+local poimandres = require("colors/poimandres").setup({
+	-- flavour = "storm",
+})
 
 return {
 	default_cursor_style = "BlinkingBlock",
-	colors = colors,
-	window_frame = window_frame,
+	colors = poimandres,
 
 	-- font
+	font = wezterm.font("JetBrains Mono", { weight = 500 }),
 	font_size = 15,
-	line_height = 1.8,
+	line_height = 2,
 
-	-- colorscheme
-	color_scheme = "rose-pine-moon",
 	window_background_opacity = 0.97,
 
 	-- tab bar
@@ -28,4 +27,7 @@ return {
 		bottom = 30,
 	},
 	window_decorations = "RESIZE",
+
+	send_composed_key_when_left_alt_is_pressed = false,
+	send_composed_key_when_right_alt_is_pressed = true,
 }
