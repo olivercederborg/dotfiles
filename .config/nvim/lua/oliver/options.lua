@@ -5,7 +5,7 @@ set.autowrite = true
 set.autowriteall = true
 set.backup = false -- creates a backup file
 set.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-set.cmdheight = 2 -- more space in the neovim command line for displaying messages
+set.cmdheight = 1 -- more space in the neovim command line for displaying messages
 set.completeopt = "menuone,noselect" -- mostly just for cmp
 set.conceallevel = 0 -- so that `` is visible in markdown files
 set.fileencoding = "utf-8" -- the encoding written to a file
@@ -37,3 +37,5 @@ set.wrap = true -- display lines as one long line
 set.scrolloff = 8 -- is one of my fav
 set.sidescrolloff = 8
 set.laststatus = 3
+set.list = true
+set.listchars:append "eol:↴"
