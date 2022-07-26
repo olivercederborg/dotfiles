@@ -16,12 +16,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Reload nvim when plugins.lua is saved
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+	pattern = "plugins.lua",
+	command = "source <afile> | PackerSync",
+})
 
 -- Use a protected call so we don't error out on first use
 local present, packer = pcall(require, "packer")
@@ -45,6 +44,14 @@ return packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "numToStr/Comment.nvim"
 	use {
+		"lukas-reineke/indent-blankline.nvim",
+		require("indent_blankline").setup {
+			show_end_of_line = true,
+			show_current_context = true,
+			show_current_context_start = true,
+		},
+	}
+	use {
 		"kylechui/nvim-surround",
 		config = function()
 			require("nvim-surround").setup()
@@ -55,33 +62,6 @@ return packer.startup(function(use)
 		config = function()
 			require("colorizer").setup()
 		end,
-	}
-	use {
-		"abecodes/tabout.nvim",
-		config = function()
-			require("tabout").setup {
-				tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-				backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-				act_as_tab = true, -- shift content if tab out is not possible
-				act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-				default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-				default_shift_tab = "<C-d>", -- reverse shift default action,
-				enable_backwards = true, -- well ...
-				completion = true, -- if the tabkey is used in a completion pum
-				tabouts = {
-					{ open = "'", close = "'" },
-					{ open = '"', close = '"' },
-					{ open = "`", close = "`" },
-					{ open = "(", close = ")" },
-					{ open = "[", close = "]" },
-					{ open = "{", close = "}" },
-				},
-				ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-				exclude = {}, -- tabout will ignore these filetypes
-			}
-		end,
-		wants = { "nvim-treesitter" }, -- or require if not used so far
-		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
 	}
 
 	-- -- Alpha - greeter
@@ -101,6 +81,7 @@ return packer.startup(function(use)
 	use "windwp/nvim-ts-autotag"
 	use "nvim-treesitter/nvim-treesitter-textobjects"
 	use "nvim-treesitter/playground"
+	use "p00f/nvim-ts-rainbow"
 
 	-- cmp plugins
 	use "hrsh7th/cmp-nvim-lsp"
@@ -119,7 +100,6 @@ return packer.startup(function(use)
 		"matbme/JABS.nvim",
 		config = function()
 			require("jabs").setup {
-				-- Options for the main window
 				position = "center", -- center, corner. Default corner
 				width = 80, -- default 50
 				height = 20, -- default 10
@@ -184,22 +164,16 @@ return packer.startup(function(use)
 		"phaazon/hop.nvim",
 		branch = "v1", -- optional but strongly recommended
 		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
 			require("hop").setup { keys = "ntesiroahdmvkgjblpufyw" }
 		end,
 	}
-	-- use("ggandor/lightspeed.nvim")
 
 	-- Issues and errors
 	use {
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("trouble").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
+			require("trouble").setup {}
 		end,
 	}
 
@@ -216,9 +190,7 @@ return packer.startup(function(use)
 		config = function()
 			vim.notify = require "notify"
 
-			require("notify").setup {
-				background_colour = "#2a273f",
-			}
+			require("notify").setup {}
 		end,
 	}
 
@@ -267,15 +239,9 @@ return packer.startup(function(use)
 	use "github/copilot.vim"
 
 	-- Themes
-	-- use {
-	-- 	"rose-pine/neovim",
-	-- 	as = "rose-pine",
-	-- 	tag = "v1.*",
-	-- }
 	use {
 		"~/Develop/sideprojects/poimandres.nvim",
 		as = "poimandres",
-		-- commit = '09f53983bc1369fdef0c76a4365d91a7c9c51281'
 	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
