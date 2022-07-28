@@ -1,10 +1,10 @@
-local present, _ = pcall(require, "lspconfig")
+local present, _ = pcall(require, 'lspconfig')
 if not present then
-	return
+  return
 end
 
-require "oliver.lsp.configs"
-require "oliver.lsp.null-ls"
-require("oliver.lsp.handlers").setup()
+require 'oliver.lsp.configs'
+require 'oliver.lsp.null-ls'
+require('oliver.lsp.handlers').setup()
 
 -- require("oliver.highlight").load_highlight "lsp"

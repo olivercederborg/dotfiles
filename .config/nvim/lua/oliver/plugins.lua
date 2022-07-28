@@ -46,7 +46,7 @@ return packer.startup(function(use)
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		require("indent_blankline").setup {
-			show_end_of_line = true,
+			-- show_end_of_line = true,
 			show_current_context = true,
 			show_current_context_start = true,
 		},
@@ -227,12 +227,7 @@ return packer.startup(function(use)
 	}
 
 	-- Git
-	use {
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	}
+	use "lewis6991/gitsigns.nvim"
 	use "kdheepak/lazygit.nvim"
 
 	-- Copilot

@@ -1,54 +1,54 @@
-local colors = require("oliver.highlight.colors").rose_pine()
+local colors = require('oliver.highlight.colors').rose_pine()
 
 return {
-	TelescopeBorder = {
-		fg = colors.surface,
-		bg = colors.surface,
-	},
+  TelescopeBorder = {
+    fg = colors.surface,
+    bg = colors.surface,
+  },
 
-	TelescopePromptBorder = {
-		fg = colors.surface,
-		bg = colors.surface,
-	},
+  TelescopePromptBorder = {
+    fg = colors.surface,
+    bg = colors.surface,
+  },
 
-	TelescopePromptNormal = {
-		fg = colors.text,
-		bg = colors.overlay,
-	},
+  TelescopePromptNormal = {
+    fg = colors.text,
+    bg = colors.overlay,
+  },
 
-	TelescopePromptPrefix = {
-		fg = colors.text,
-		bg = colors.surface,
-	},
+  TelescopePromptPrefix = {
+    fg = colors.text,
+    bg = colors.surface,
+  },
 
-	TelescopeNormal = { bg = colors.surface },
+  TelescopeNormal = { bg = colors.surface },
 
-	TelescopePreviewTitle = {
-		fg = colors.base,
-		bg = colors.foam,
-	},
+  TelescopePreviewTitle = {
+    fg = colors.base,
+    bg = colors.foam,
+  },
 
-	TelescopePromptTitle = {
-		fg = colors.base,
-		bg = colors.rose,
-	},
+  TelescopePromptTitle = {
+    fg = colors.base,
+    bg = colors.rose,
+  },
 
-	TelescopeResultsTitle = {
-		fg = colors.text,
-		bg = colors.base,
-	},
+  TelescopeResultsTitle = {
+    fg = colors.text,
+    bg = colors.base,
+  },
 
-	TelescopeSelection = { bg = colors.hl_med, fg = colors.text },
+  TelescopeSelection = { bg = colors.hl_med, fg = colors.text },
 
-	TelescopeResultsDiffAdd = {
-		fg = colors.foam,
-	},
+  TelescopeResultsDiffAdd = {
+    fg = colors.foam,
+  },
 
-	TelescopeResultsDiffChange = {
-		fg = colors.gold,
-	},
+  TelescopeResultsDiffChange = {
+    fg = colors.gold,
+  },
 
-	TelescopeResultsDiffDelete = {
-		fg = colors.love,
-	},
+  TelescopeResultsDiffDelete = {
+    fg = colors.love,
+  },
 }
