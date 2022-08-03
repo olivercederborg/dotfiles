@@ -9,7 +9,7 @@ return {
 	-- font
 	font = wezterm.font("JetBrains Mono", { weight = 500 }),
 	font_size = 15,
-	line_height = 2.4,
+	line_height = 2.2,
 
 	window_background_opacity = 0.97,
 
