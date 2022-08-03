@@ -111,6 +111,8 @@ alias nv='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias gui='gitui'
+alias dots='~/dotcli.sh'
+alias tim='~/bin/tim'
 
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -123,6 +125,11 @@ starship_precmd_user_func="set_win_title"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH=$PATH:/Users/olivercederborg/.spicetify:/Users/olivercederborg/bin/tim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
-export PATH=$PATH:/Users/olivercederborg/.spicetify
