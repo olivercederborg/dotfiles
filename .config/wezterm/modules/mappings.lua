@@ -58,17 +58,17 @@ return {
 
   key_tables = {
     resize_pane = {
-      { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
-      { key = "k", action = act.AdjustPaneSize({ "Left", 1 }) },
+      { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 5 }) },
+      { key = "k", action = act.AdjustPaneSize({ "Left", 5 }) },
 
-      { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
-      { key = "i", action = act.AdjustPaneSize({ "Right", 1 }) },
+      { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 5 }) },
+      { key = "i", action = act.AdjustPaneSize({ "Right", 5 }) },
 
-      { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
-      { key = "e", action = act.AdjustPaneSize({ "Up", 1 }) },
+      { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 2 }) },
+      { key = "e", action = act.AdjustPaneSize({ "Up", 2 }) },
 
-      { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
-      { key = "n", action = act.AdjustPaneSize({ "Down", 1 }) },
+      { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 2 }) },
+      { key = "n", action = act.AdjustPaneSize({ "Down", 2 }) },
 
       { key = "Escape", action = "PopKeyTable" },
     },
