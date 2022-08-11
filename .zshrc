@@ -93,7 +93,10 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
-# fi
+# for_i
+#
+
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,12 +109,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias r='ranger'
 alias v='nvim'
 alias nv='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias gui='gitui'
-alias dots='~/dotcli.sh'
+alias dots='~/scripts/dots.sh'
 alias tim='~/bin/tim'
 
 
