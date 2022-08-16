@@ -99,6 +99,16 @@ map("n", "<leader>de", "yyP", opts)
 map("x", "<leader>dn", "y'>p", opts)
 map("x", "<leader>de", "yP", opts)
 
+-- Move lines
+map("n", "<C-M-n>", ":MoveLine(1)<CR>", opts)
+map("n", "<C-M-e>", ":MoveLine(-1)<CR>", opts)
+map("v", "<C-M-n>", ":MoveBlock(1)<CR>", opts)
+map("v", "<C-M-e>", ":MoveBlock(-1)<CR>", opts)
+map("n", "<C-M-i>", ":MoveHChar(1)<CR>", opts)
+map("n", "<C-M-k>", ":MoveHChar(-1)<CR>", opts)
+map("v", "<C-M-i>", ":MoveHBlock(1)<CR>", opts)
+map("v", "<C-M-k>", ":MoveHBlock(-1)<CR>", opts)
+
 -- Comment
 -- Toggle comment on line
 map("n", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
