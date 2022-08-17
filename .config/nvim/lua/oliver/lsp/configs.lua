@@ -13,12 +13,12 @@ lsp_installer.setup {
 
 for _, server in pairs(servers) do
   local opts = {
-    on_attach = require('oliver.lsp.handlers').on_attach,
-    capabilities = require('oliver.lsp.handlers').capabilities,
+    on_attach = require("oliver.lsp.handlers").on_attach,
+    capabilities = require("oliver.lsp.handlers").capabilities,
   }
-  local has_custom_opts, server_custom_opts = pcall(require, 'oliver.lsp.settings.' .. server)
+  local has_custom_opts, server_custom_opts = pcall(require, "oliver.lsp.settings." .. server)
   if has_custom_opts then
-    opts = vim.tbl_deep_extend('force', server_custom_opts, opts)
+    opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
   lspconfig[server].setup(opts)
 end
