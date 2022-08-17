@@ -2,11 +2,11 @@
 
 # necessary to load scripting-addition during startup on macOS Big Sur
 # *yabai --load-sa* is configured to run through sudo without a password
-sudo yabai --load-sa
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config external_bar                  off:45:0
+# yabai -m config external_bar                  off:45:0
 yabai -m config mouse_follows_focus           off
 yabai -m config focus_follows_mouse           off
 yabai -m config window_origin_display         default
