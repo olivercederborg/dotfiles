@@ -80,7 +80,6 @@ plugins=(
 	autojump
   golang
   fig
-  ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
