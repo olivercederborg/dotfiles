@@ -85,6 +85,7 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("windwp/nvim-ts-autotag")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("nvim-treesitter/nvim-treesitter-context")
 	use("nvim-treesitter/playground")
 	use("p00f/nvim-ts-rainbow")
 
