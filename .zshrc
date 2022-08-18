@@ -78,6 +78,9 @@ plugins=(
 	zsh-autosuggestions
 	sudo
 	autojump
+  golang
+  fig
+  ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,6 +113,7 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cd..='cd ..'
 alias r='ranger'
 alias v='nvim'
 alias nv='nvim'
