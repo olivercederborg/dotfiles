@@ -13,11 +13,6 @@ local lspkind = require("lspkind")
 require("luasnip/loaders/from_vscode").lazy_load()
 -- require("oliver.highlight").load_highlight "cmp"
 
---[[ local check_backspace = function() ]]
---[[ 	local col = vim.fn.col(".") - 1 ]]
---[[ 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ]]
---[[ end ]]
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -95,17 +90,3 @@ cmp.setup({
 		ghost_text = false,
 	},
 })
-
--- cmp.setup.cmdline("/", {
--- 	sources = {
--- 		{ name = "nvim_lsp_document_symbol" },
--- 		{ name = "buffer" },
--- 	},
--- })
--- cmp.setup.cmdline(":", {
--- 	sources = cmp.config.sources({
--- 		{ name = "path" },
--- 	}, {
--- 		{ name = "cmdline" },
--- 	}),
--- })
