@@ -5,11 +5,11 @@ alt - e : yabai -m window --focus north
 alt - i : yabai -m window --focus east
 
 # Focus space relative to active display
-alt - 1 : yabai -m space --focus (yabai -m query --spaces --display | jq '.[0].index')
-alt - 2 : yabai -m space --focus (yabai -m query --spaces --display | jq '.[1].index')
-alt - 3 : yabai -m space --focus (yabai -m query --spaces --display | jq '.[2].index')
-alt - 4 : yabai -m space --focus (yabai -m query --spaces --display | jq '.[3].index')
-alt - 5 : yabai -m space --focus (yabai -m query --spaces --display | jq '.[4].index')
+alt - 1 : yabai -m space --focus $(yabai -m query --spaces --display | jq '.[0].index')
+alt - 2 : yabai -m space --focus $(yabai -m query --spaces --display | jq '.[1].index')
+alt - 3 : yabai -m space --focus $(yabai -m query --spaces --display | jq '.[2].index')
+alt - 4 : yabai -m space --focus $(yabai -m query --spaces --display | jq '.[3].index')
+alt - 5 : yabai -m space --focus $(yabai -m query --spaces --display | jq '.[4].index')
 
 # Moving windows
 shift + alt - k : yabai -m window --swap west
@@ -31,11 +31,11 @@ shift + alt - m : yabai -m window --space last; yabai -m space --focus last
 shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
 shift + alt - n : yabai -m window --space next; yabai -m space --focus next
 
-shift + alt - 1 : set index (yabai -m query --spaces --display | jq '.[0].index') && yabai -m window --space $index && yabai -m space --focus $index
-shift + alt - 2 : set index (yabai -m query --spaces --display | jq '.[1].index') && yabai -m window --space $index && yabai -m space --focus $index
-shift + alt - 3 : set index (yabai -m query --spaces --display | jq '.[2].index') && yabai -m window --space $index && yabai -m space --focus $index
-shift + alt - 4 : set index (yabai -m query --spaces --display | jq '.[3].index') && yabai -m window --space $index && yabai -m space --focus $index
-shift + alt - 5 : set index (yabai -m query --spaces --display | jq '.[4].index') && yabai -m window --space $index && yabai -m space --focus $index
+shift + alt - 1 : index=$(yabai -m query --spaces --display | jq '.[0].index') && yabai -m window --space $index && yabai -m space --focus $index
+shift + alt - 2 : index=$(yabai -m query --spaces --display | jq '.[1].index') && yabai -m window --space $index && yabai -m space --focus $index
+shift + alt - 3 : index=$(yabai -m query --spaces --display | jq '.[2].index') && yabai -m window --space $index && yabai -m space --focus $index
+shift + alt - 4 : index=$(yabai -m query --spaces --display | jq '.[3].index') && yabai -m window --space $index && yabai -m space --focus $index
+shift + alt - 5 : index=$(yabai -m query --spaces --display | jq '.[4].index') && yabai -m window --space $index && yabai -m space --focus $index
 
 # focus monitor
 hyper - 1  : yabai -m display --focus 1
@@ -86,20 +86,20 @@ alt + shift - w : yabai -m window --focus prev || yabai -m window --focus last
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 cmd + alt - n : yabai -m space --create && \
-                  set index (yabai -m query --spaces --display | jq '.[-1].index') && \
+                  index=$(yabai -m query --spaces --display | jq '.[-1].index') && \
                   yabai -m window --space $index && \
                   yabai -m space --focus $index && \
                   echo "refresh" | nc -U /tmp/yabai-indicator.socket
 
 # create desktop and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
-                set index (yabai -m query --spaces --display | jq '.[-1].index') && \
+                index=$(yabai -m query --spaces --display | jq '.[-1].index') && \
                 yabai -m space --focus $index && \
                 echo "refresh" | nc -U /tmp/yabai-indicator.socket
 
 # destroy desktop
 # cmd + alt - w : \
-#     set index (yabai -m query --spaces | jq '.[] | select(."has-focus").index') && \
+#     index=$(yabai -m query --spaces | jq '.[] | select(."has-focus").index') && \
 #     if $index -gt 1 set newindex (expr $index - 1) && \
 #     else set newindex (expr $index + 1) end && \
 #     yabai -m space --destroy && \
