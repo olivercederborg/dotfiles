@@ -111,9 +111,9 @@ map("v", "<C-M-k>", ":MoveHBlock(-1)<CR>", opts)
 
 -- Comment
 -- Toggle comment on line
-map("n", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+map("n", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise.current(nil)<CR>', opts)
 -- Toggle comment on block
-map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+map("v", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
 
 -- Telescope
 map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
