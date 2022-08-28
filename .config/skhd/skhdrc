@@ -98,12 +98,11 @@ shift + cmd - n : yabai -m space --create && \
                 echo "refresh" | nc -U /tmp/yabai-indicator.socket
 
 # destroy desktop
-# cmd + alt - w : \
-#     index=$(yabai -m query --spaces | jq '.[] | select(."has-focus").index') && \
-#     if $index -gt 1 set newindex (expr $index - 1) && \
-#     else set newindex (expr $index + 1) end && \
-#     yabai -m space --destroy && \
-#     yabai -m space --focus $newindex
+cmd + alt - w : \
+    index="$(yabai -m query --spaces | jq '.[] | select(."has-focus").index')" && \
+    if [ $index -gt 1 ]; then newindex=$(expr $index - 1); else newindex=$(expr $index + 1); fi && \
+    yabai -m space --destroy && \
+    yabai -m space --focus "${newindex}"
 
 # Restart Yabai
 hyper - y : \
