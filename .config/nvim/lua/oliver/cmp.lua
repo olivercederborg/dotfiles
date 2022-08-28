@@ -83,9 +83,6 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-	view = {
-		entries = { name = "custom", selection_order = "near_cursor" },
-	},
 	experimental = {
 		ghost_text = false,
 	},
