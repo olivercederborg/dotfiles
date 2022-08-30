@@ -14,10 +14,15 @@ map("n", "<C-s>", ":up<CR>", opts)
 map("n", "<leader>fm", ":Format<CR>", opts)
 
 -- Better window navigations
-map("n", "<C-k>", "<C-w>h", opts)
-map("n", "<C-n>", "<C-w>j", opts)
-map("n", "<C-e>", "<C-w>k", opts)
-map("n", "<C-i>", "<C-w>l", opts)
+--[[ map("n", "<C-k>", "<C-w>h", opts) ]]
+--[[ map("n", "<C-n>", "<C-w>j", opts) ]]
+--[[ map("n", "<C-e>", "<C-w>k", opts) ]]
+--[[ map("n", "<C-i>", "<C-w>l", opts) ]]
+--[[ map("n", "<C-c>", "<C-w>c", opts) ]]
+map("n", "<C-h>", "<C-w>h", opts)
+map("n", "<C-k>", "<C-w>j", opts)
+map("n", "<C-j>", "<C-w>k", opts)
+map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-c>", "<C-w>c", opts)
 
 -- Resize with arrows
@@ -35,25 +40,25 @@ map("v", ">", ">gv", opts)
 map("v", "p", '"_dP', opts)
 
 -- Colemak mappings
-map({ "n", "x", "o" }, "j", "e", opts)
-map({ "n", "x", "o" }, "h", "n", opts)
-map({ "n", "x", "o" }, "n", "j", opts)
-map({ "n", "x", "o" }, "e", "k", opts)
-map({ "n", "x", "o" }, "i", "l", opts)
-map({ "n", "x", "o" }, "k", "h", opts)
+map({ "n", "x", "o" }, "j", "k", opts)
+map({ "n", "x", "o" }, "k", "j", opts)
+--[[ map({ "n", "x", "o" }, "h", "n", opts) ]]
+--[[ map({ "n", "x", "o" }, "e", "k", opts) ]]
+--[[ map({ "n", "x", "o" }, "i", "l", opts) ]]
+--[[ map({ "n", "x", "o" }, "k", "h", opts) ]]
 
 -- Colemak Insert
-map({ "n", "x", "o" }, "l", "i", opts)
-map({ "n", "x", "o" }, "L", "I", opts)
+--[[ map({ "n", "x", "o" }, "l", "i", opts) ]]
+--[[ map({ "n", "x", "o" }, "L", "I", opts) ]]
 
 -- Faster navigation
-map({ "n", "x", "o" }, "N", "5j", opts)
-map({ "n", "x", "o" }, "E", "5k", opts)
-map({ "n", "x", "o" }, "K", "^", opts)
-map({ "n", "x", "o" }, "I", "$", opts)
+map({ "n", "x", "o" }, "K", "5j", opts)
+map({ "n", "x", "o" }, "J", "5k", opts)
+map({ "n", "x", "o" }, "H", "^", opts)
+map({ "n", "x", "o" }, "L", "$", opts)
 
 -- Forward retrace movements
-map("n", "<C-m", "<C-i>", opts)
+--[[ map("n", "<C-m", "<C-i>", opts) ]]
 
 -- Previous search result
 map({ "n", "v", "x", "o" }, "H", "N", opts)
@@ -100,14 +105,14 @@ map("x", "<leader>dn", "y'>p", opts)
 map("x", "<leader>de", "yP", opts)
 
 -- Move lines
-map("n", "<C-M-n>", ":MoveLine(1)<CR>", opts)
-map("n", "<C-M-e>", ":MoveLine(-1)<CR>", opts)
-map("v", "<C-M-n>", ":MoveBlock(1)<CR>", opts)
-map("v", "<C-M-e>", ":MoveBlock(-1)<CR>", opts)
-map("n", "<C-M-i>", ":MoveHChar(1)<CR>", opts)
-map("n", "<C-M-k>", ":MoveHChar(-1)<CR>", opts)
-map("v", "<C-M-i>", ":MoveHBlock(1)<CR>", opts)
-map("v", "<C-M-k>", ":MoveHBlock(-1)<CR>", opts)
+map("n", "<C-M-k>", ":MoveLine(1)<CR>", opts)
+map("n", "<C-M-j>", ":MoveLine(-1)<CR>", opts)
+map("v", "<C-M-k>", ":MoveBlock(1)<CR>", opts)
+map("v", "<C-M-j>", ":MoveBlock(-1)<CR>", opts)
+map("n", "<C-M-l>", ":MoveHChar(1)<CR>", opts)
+map("n", "<C-M-h>", ":MoveHChar(-1)<CR>", opts)
+map("v", "<C-M-l>", ":MoveHBlock(1)<CR>", opts)
+map("v", "<C-M-h>", ":MoveHBlock(-1)<CR>", opts)
 
 -- Comment
 -- Toggle comment on line
