@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local poimandres = require("colors/poimandres").setup({})
 local mappings = require("modules.mappings")
 
 -- Show which key table is active in the status area
@@ -13,7 +12,7 @@ end)
 
 return {
 	default_cursor_style = "BlinkingBlock",
-	colors = poimandres,
+  color_scheme = "Poimandres",
 
 	-- font
 	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
