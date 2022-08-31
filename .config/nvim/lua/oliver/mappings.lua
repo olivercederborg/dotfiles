@@ -61,7 +61,7 @@ map({ "n", "x", "o" }, "L", "$", opts)
 --[[ map("n", "<C-m", "<C-i>", opts) ]]
 
 -- Previous search result
-map({ "n", "v", "x", "o" }, "H", "N", opts)
+--[[ map({ "n", "v", "x", "o" }, "H", "N", opts) ]]
 
 -- Quality of life
 map({ "n", "v" }, ";", ":", {
@@ -99,10 +99,10 @@ map("n", ",p", '"0p', opts)
 map("n", ",P", '"0P', opts)
 
 -- Duplicate line/selection up/down
-map("n", "<leader>dn", "yyp", opts)
-map("n", "<leader>de", "yyP", opts)
-map("x", "<leader>dn", "y'>p", opts)
-map("x", "<leader>de", "yP", opts)
+map("n", "<leader>dk", "yyp", opts)
+map("n", "<leader>dj", "yyP", opts)
+map("x", "<leader>dk", "y'>p", opts)
+map("x", "<leader>dj", "yP", opts)
 
 -- Move lines
 map("n", "<C-M-k>", ":MoveLine(1)<CR>", opts)
