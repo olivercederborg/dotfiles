@@ -12,7 +12,7 @@ end)
 
 return {
 	default_cursor_style = "BlinkingBlock",
-  color_scheme = "Poimandres",
+	color_scheme = "Poimandres",
 
 	-- font
 	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
