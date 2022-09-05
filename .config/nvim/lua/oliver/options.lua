@@ -37,6 +37,5 @@ set.signcolumn = "yes" -- always show the sign column, otherwise it would shift 
 set.wrap = true -- display lines as one long line
 set.scrolloff = 8 -- is one of my fav
 set.sidescrolloff = 8
-set.laststatus = 3
 set.list = true
 -- set.listchars:append "eol:↴"
