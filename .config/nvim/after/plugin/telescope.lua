@@ -51,15 +51,15 @@ telescope.setup({
 
     mappings = {
       i = {
-        ["<C-k>"] = actions.move_selection_next,
-        ["<C-j>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-e>"] = actions.move_selection_previous,
       },
 
       n = {
         ["q"] = actions.close,
 
-        ["k"] = actions.move_selection_next,
-        ["j"] = actions.move_selection_previous,
+        ["n"] = actions.move_selection_next,
+        ["e"] = actions.move_selection_previous,
 
         ["gg"] = actions.move_to_top,
         ["G"] = actions.move_to_bottom,
