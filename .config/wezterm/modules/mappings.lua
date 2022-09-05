@@ -23,22 +23,22 @@ return {
 
 		-- focus panes
 		{
-			key = "h",
+			key = "k",
 			mods = "LEADER",
 			action = act.ActivatePaneDirection("Left"),
 		},
 		{
-			key = "l",
+			key = "i",
 			mods = "LEADER",
 			action = act.ActivatePaneDirection("Right"),
 		},
 		{
-			key = "j",
+			key = "e",
 			mods = "LEADER",
 			action = act.ActivatePaneDirection("Up"),
 		},
 		{
-			key = "k",
+			key = "n",
 			mods = "LEADER",
 			action = act.ActivatePaneDirection("Down"),
 		},
@@ -50,7 +50,7 @@ return {
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		{
-			key = "x",
+			key = "h",
 			mods = "LEADER",
 			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
@@ -59,16 +59,16 @@ return {
 	key_tables = {
 		resize_pane = {
 			{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 5 }) },
-			{ key = "h", action = act.AdjustPaneSize({ "Left", 5 }) },
+			{ key = "k", action = act.AdjustPaneSize({ "Left", 5 }) },
 
 			{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 5 }) },
-			{ key = "l", action = act.AdjustPaneSize({ "Right", 5 }) },
+			{ key = "i", action = act.AdjustPaneSize({ "Right", 5 }) },
 
 			{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 2 }) },
-			{ key = "j", action = act.AdjustPaneSize({ "Up", 2 }) },
+			{ key = "e", action = act.AdjustPaneSize({ "Up", 2 }) },
 
 			{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 2 }) },
-			{ key = "k", action = act.AdjustPaneSize({ "Down", 2 }) },
+			{ key = "n", action = act.AdjustPaneSize({ "Down", 2 }) },
 
 			{ key = "Escape", action = "PopKeyTable" },
 		},
