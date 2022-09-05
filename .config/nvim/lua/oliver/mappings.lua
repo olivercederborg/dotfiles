@@ -20,6 +20,12 @@ map("n", "<C-e>", "<C-w>k", opts)
 map("n", "<C-i>", "<C-w>l", opts)
 map("n", "<C-c>", "<C-w>c", opts)
 
+-- Move windows
+map("n", "<C-w>k", "<C-w>H", opts)
+map("n", "<C-w>n", "<C-w>J", opts)
+map("n", "<C-w>e", "<C-w>K", opts)
+map("n", "<C-w>i", "<C-w>L", opts)
+
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
