@@ -59,7 +59,7 @@ map({ "n", "x", "o" }, "K", "^", opts)
 map({ "n", "x", "o" }, "I", "$", opts)
 
 -- Forward retrace movements
-map("n", "<C-m", "<C-i>", opts)
+map("n", "<C-m>", "<C-i>", opts)
 
 -- Previous search result
 map({ "n", "v", "x", "o" }, "H", "N", opts)
