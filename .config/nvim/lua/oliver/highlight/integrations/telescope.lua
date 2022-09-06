@@ -1,27 +1,23 @@
 local colors = require("poimandres.palette")
 
 return {
-	--[[ TelescopeBorder = { ]]
-	--[[   fg = colors.background1, ]]
-	--[[   bg = colors.background1, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopePromptBorder = { ]]
-	--[[   fg = colors.background1, ]]
-	--[[   bg = colors.background1, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopePromptNormal = { ]]
-	--[[   fg = colors.text, ]]
-	--[[   bg = colors.overlay, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopePromptPrefix = { ]]
-	--[[   fg = colors.text, ]]
-	--[[   bg = colors.surface, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopeNormal = { bg = colors.surface }, ]]
+	TelescopeBorder = {
+		fg = colors.background1,
+	},
+
+	TelescopePromptBorder = {
+		fg = colors.background1,
+	},
+
+	TelescopePromptNormal = {
+		fg = colors.text,
+	},
+
+	TelescopePromptPrefix = {
+		fg = colors.blueGray2,
+	},
+
+	--[[ TelescopeNormal = { bg = colors.background2 }, ]]
 
 	TelescopePreviewTitle = {
 		fg = colors.background2,
@@ -40,15 +36,15 @@ return {
 
 	TelescopeSelection = { bg = colors.background1, fg = colors.text },
 
-	--[[ TelescopeResultsDiffAdd = { ]]
-	--[[   fg = colors.foam, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopeResultsDiffChange = { ]]
-	--[[   fg = colors.gold, ]]
-	--[[ }, ]]
-	--[[]]
-	--[[ TelescopeResultsDiffDelete = { ]]
-	--[[   fg = colors.love, ]]
-	--[[ }, ]]
+	TelescopeResultsDiffAdd = {
+		fg = colors.teal1,
+	},
+
+	TelescopeResultsDiffChange = {
+		fg = colors.yellow,
+	},
+
+	TelescopeResultsDiffDelete = {
+		fg = colors.pink3,
+	},
 }
