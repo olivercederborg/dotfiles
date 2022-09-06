@@ -19,7 +19,7 @@ return {
 	font_size = 15,
 	line_height = 1.7,
 
-	window_background_opacity = 0.97,
+	window_background_opacity = 0.98,
 
 	-- tab bar
 	use_fancy_tab_bar = false,
@@ -34,6 +34,10 @@ return {
 		bottom = 30,
 	},
 	window_decorations = "RESIZE",
+
+	inactive_pane_hsb = {
+		brightness = 0.7,
+	},
 
 	send_composed_key_when_left_alt_is_pressed = false,
 	send_composed_key_when_right_alt_is_pressed = true,
