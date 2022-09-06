@@ -1,54 +1,54 @@
-local colors = require('oliver.highlight.colors').rose_pine()
+local colors = require("poimandres.palette")
 
 return {
-  TelescopeBorder = {
-    fg = colors.surface,
-    bg = colors.surface,
-  },
+	--[[ TelescopeBorder = { ]]
+	--[[   fg = colors.background1, ]]
+	--[[   bg = colors.background1, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopePromptBorder = { ]]
+	--[[   fg = colors.background1, ]]
+	--[[   bg = colors.background1, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopePromptNormal = { ]]
+	--[[   fg = colors.text, ]]
+	--[[   bg = colors.overlay, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopePromptPrefix = { ]]
+	--[[   fg = colors.text, ]]
+	--[[   bg = colors.surface, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopeNormal = { bg = colors.surface }, ]]
 
-  TelescopePromptBorder = {
-    fg = colors.surface,
-    bg = colors.surface,
-  },
+	TelescopePreviewTitle = {
+		fg = colors.background2,
+		bg = colors.teal1,
+	},
 
-  TelescopePromptNormal = {
-    fg = colors.text,
-    bg = colors.overlay,
-  },
+	TelescopePromptTitle = {
+		fg = colors.background2,
+		bg = colors.blue1,
+	},
 
-  TelescopePromptPrefix = {
-    fg = colors.text,
-    bg = colors.surface,
-  },
+	TelescopeResultsTitle = {
+		fg = colors.text,
+		bg = colors.blueGray3,
+	},
 
-  TelescopeNormal = { bg = colors.surface },
+	TelescopeSelection = { bg = colors.background1, fg = colors.text },
 
-  TelescopePreviewTitle = {
-    fg = colors.base,
-    bg = colors.foam,
-  },
-
-  TelescopePromptTitle = {
-    fg = colors.base,
-    bg = colors.rose,
-  },
-
-  TelescopeResultsTitle = {
-    fg = colors.text,
-    bg = colors.base,
-  },
-
-  TelescopeSelection = { bg = colors.hl_med, fg = colors.text },
-
-  TelescopeResultsDiffAdd = {
-    fg = colors.foam,
-  },
-
-  TelescopeResultsDiffChange = {
-    fg = colors.gold,
-  },
-
-  TelescopeResultsDiffDelete = {
-    fg = colors.love,
-  },
+	--[[ TelescopeResultsDiffAdd = { ]]
+	--[[   fg = colors.foam, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopeResultsDiffChange = { ]]
+	--[[   fg = colors.gold, ]]
+	--[[ }, ]]
+	--[[]]
+	--[[ TelescopeResultsDiffDelete = { ]]
+	--[[   fg = colors.love, ]]
+	--[[ }, ]]
 }

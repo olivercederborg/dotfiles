@@ -8,7 +8,7 @@ if not present_ then
   return
 end
 
--- require("oliver.highlight").load_highlight "telescope"
+require("oliver.highlight").load_highlight("telescope")
 
 vim.g.theme_switcher_loaded = true
 
