@@ -29,10 +29,10 @@ return {
 		bg = colors.blue1,
 	},
 
-	TelescopeResultsTitle = {
-		fg = colors.text,
-		bg = colors.blueGray3,
-	},
+	--[[ TelescopeResultsTitle = { ]]
+	--[[ 	fg = colors.text, ]]
+	--[[ 	bg = colors.blueGray3, ]]
+	--[[ }, ]]
 
 	TelescopeSelection = { bg = colors.background1, fg = colors.text },
 
