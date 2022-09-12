@@ -11,7 +11,6 @@ end
 local lspkind = require("lspkind")
 
 require("luasnip/loaders/from_vscode").lazy_load()
--- require("oliver.highlight").load_highlight "cmp"
 
 cmp.setup({
   snippet = {
