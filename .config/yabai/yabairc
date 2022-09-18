@@ -44,9 +44,6 @@ yabai -m rule --add app="^Raycast$" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
-# yabai -m signal --add event=window_destroyed action="echo \"destroyed window with id \$YABAI_WINDOW_ID\""
-# yabai -m signal --add event=space_changed action="echo \"changed space \$YABAI_RECENT_SPACE_ID -> \$YABAI_SPACE_ID\""
-# yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 
 # signals for yabai indicator
 yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
