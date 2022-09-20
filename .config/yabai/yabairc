@@ -41,6 +41,7 @@ yabai -m config window_gap                    10
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
