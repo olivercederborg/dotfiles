@@ -2,7 +2,8 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
