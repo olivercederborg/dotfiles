@@ -191,16 +191,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- Notifications
-	--[[ use({ ]]
-	--[[ 	"rcarriga/nvim-notify", ]]
-	--[[ 	config = function() ]]
-	--[[ 		vim.notify = require("notify") ]]
-	--[[]]
-	--[[ 		require("notify").setup({}) ]]
-	--[[ 	end, ]]
-	--[[ }) ]]
-
 	-- Wildmenu
 	use({
 		"gelguy/wilder.nvim",
@@ -220,18 +210,6 @@ return packer.startup(function(use)
 	})
 
 	use({ "numtostr/BufOnly.nvim", cmd = "BufOnly" })
-
-	use({
-		"max397574/better-escape.nvim",
-		config = function()
-			require("better_escape").setup({
-				mapping = { "nn" }, -- a table with mappings to use
-				timeout = 150,
-				clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-				keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
-			})
-		end,
-	})
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
