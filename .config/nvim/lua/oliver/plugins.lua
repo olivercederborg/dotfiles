@@ -211,6 +211,13 @@ return packer.startup(function(use)
 
 	use({ "numtostr/BufOnly.nvim", cmd = "BufOnly" })
 
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
+
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("kdheepak/lazygit.nvim")
