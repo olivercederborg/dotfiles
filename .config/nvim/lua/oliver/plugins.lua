@@ -228,10 +228,7 @@ return packer.startup(function(use)
 	-- Themes
 	local poimandres = is_macbook and "~/Develop/personal/poimandres.nvim" or "olivercederborg/poimandres.nvim"
 
-	use({
-		poimandres,
-		as = "poimandres",
-	})
+	use(poimandres)
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

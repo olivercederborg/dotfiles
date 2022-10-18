@@ -1,6 +1,5 @@
 require("oliver.autocommands")
 require("oliver.plugins")
-require("oliver.colorscheme")
 require("oliver.options")
 require("oliver.mappings")
 require("oliver.lsp")
