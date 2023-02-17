@@ -57,8 +57,11 @@ return packer.startup(function(use)
 	})
 	use({
 		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
-			require("nvim-surround").setup()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
 		end,
 	})
 	use({
@@ -121,14 +124,32 @@ return packer.startup(function(use)
 	-- LSP
 
 	use({
-		"williamboman/nvim-lsp-installer",
-		"neovim/nvim-lspconfig",
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v1.x",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" }, -- Required
+			{ "williamboman/mason.nvim" }, -- Optional
+			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+			{ "hrsh7th/cmp-buffer" }, -- Optional
+			{ "hrsh7th/cmp-path" }, -- Optional
+			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
+			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" }, -- Required
+			{ "rafamadriz/friendly-snippets" }, -- Optional
+		},
 	})
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use("jose-elias-alvarez/nvim-lsp-ts-utils")
-	--[[ use("MunifTanjim/prettier.nvim")  ]]
+	use("jose-elias-alvarez/typescript.nvim")
 
+	--[[ use("MunifTanjim/prettier.nvim")  ]]
 	-- Code actions
 	use({
 		"weilbith/nvim-code-action-menu",
