@@ -86,6 +86,18 @@ nvim_tree.setup({
 		},
 		number = false,
 		relativenumber = false,
+		float = {
+			enable = false,
+			quit_on_focus_loss = true,
+			open_win_config = {
+				relative = "editor",
+				border = "rounded",
+				width = 30,
+				height = 30,
+				row = 1,
+				col = 1,
+			},
+		},
 	},
 	trash = {
 		cmd = "trash",

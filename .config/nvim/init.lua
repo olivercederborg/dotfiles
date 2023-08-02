@@ -1,4 +1,5 @@
 require("oliver.autocommands")
-require("oliver.plugins")
-require("oliver.options")
 require("oliver.mappings")
+require("oliver.options")
+require("oliver.lazy")
+require("oliver.plugins")

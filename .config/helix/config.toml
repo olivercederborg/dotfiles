@@ -11,20 +11,27 @@ select = "underline"
 
 [keys.normal]
 C-s = ":w" # Maps the Control-s to the typable command :w which is an alias for :write (save file)
-C-o = ":open ~/.config/helix/config.toml" # Maps the Control-o to opening of the helix config file
+"C-m" = "jump_forward"
 "C-S-esc" = "extend_line" # Maps Control-Shift-Escape to extend_line
 g = { a = "code_action", k = "goto_line_start", i = "goto_line_end"} # Maps `ga` to show possible code actions
 "ret" = ["open_below", "normal_mode"] # Maps the enter key to open_below then re-enter normal mode
 "n" = "move_line_down" 
 "e" = "move_line_up" 
 "k" = "move_char_left" 
+"K" = "goto_line_start"
 "i" = "move_char_right" 
+"I" = "goto_line_end"
 "j" = "move_next_word_end" 
+
 "J" = "move_next_long_word_end" 
 
+"h" = "search_next"
+"H" = "search_prev"
+
 "l" = "insert_mode"
-"L" = "prepend_to_line"
+"L" = "insert_at_line_start"
 
 [keys.select]
 "l" = "insert_mode"
-"L" = "prepend_to_line"
+"L" = "insert_at_line_start"
+
