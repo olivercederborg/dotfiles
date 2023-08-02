@@ -133,9 +133,8 @@ map("n", "<leader>b", ":JABSOpen<CR>", opts)
 map("n", "<leader>x", ":BufOnly<CR>", opts)
 
 -- NvimTree
-map("n", "<leader>e", ":Neotree<CR>", opts)
-map("n", "<leader>n", ":Neotree float reveal_file=<cfile> reveal_force_cwd<CR>", opts)
-
+map("n", "<leader>e", ":Neotree reveal toggle<CR>", opts)
+--[[ map("n", "<leader>n", ":Neotree float reveal_file=<cfile> reveal_force_cwd<CR>", opts) ]]
 -- Trouble
 map("n", "<leader>m", ":TroubleToggle<CR>", opts)
 
