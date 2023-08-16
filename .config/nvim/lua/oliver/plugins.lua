@@ -2,13 +2,46 @@ local fn = vim.fn
 -- https://github.com/williamboman/nvim-config/blob/main/lua/wb/plugins.lua#L161
 local is_macbook = vim.trim(fn.system("hostname")) == "MacBook-Pro-tilhrende-Oliver-2.local"
 
---[[ local poimandres = is_macbook and "~/Develop/personal/poimandres.nvim" or "olivercederborg/poimandres.nvim" ]]
 return {
+	--[[ { ]]
+	--[[ 	"ellisonleao/gruvbox.nvim", ]]
+	--[[ 	priority = 1000, ]]
+	--[[ 	config = function() ]]
+	--[[ 		-- setup must be called before loading the colorscheme ]]
+	--[[ 		-- Default options: ]]
+	--[[ 		require("gruvbox").setup({ ]]
+	--[[ 			undercurl = true, ]]
+	--[[ 			underline = true, ]]
+	--[[ 			bold = true, ]]
+	--[[ 			italic = { ]]
+	--[[ 				strings = true, ]]
+	--[[ 				comments = true, ]]
+	--[[ 				operators = false, ]]
+	--[[ 				folds = true, ]]
+	--[[ 			}, ]]
+	--[[ 			strikethrough = true, ]]
+	--[[ 			invert_selection = false, ]]
+	--[[ 			invert_signs = false, ]]
+	--[[ 			invert_tabline = false, ]]
+	--[[ 			invert_intend_guides = false, ]]
+	--[[ 			inverse = true, -- invert background for search, diffs, statuslines and errors ]]
+	--[[ 			contrast = "", -- can be "hard", "soft" or empty string ]]
+	--[[ 			palette_overrides = {}, ]]
+	--[[ 			overrides = {}, ]]
+	--[[ 			dim_inactive = false, ]]
+	--[[ 			transparent_mode = true, ]]
+	--[[ 		}) ]]
+	--[[ 	end, ]]
+	--[[ 	init = function() ]]
+	--[[ 		vim.cmd("colorscheme gruvbox") ]]
+	--[[ 	end, ]]
+	--[[ }, ]]
+
 	{
 		"olivercederborg/poimandres.nvim",
 		lazy = false,
 		priority = 1000,
-		--[[ dir = is_macbook and "~/Develop/personal/poimandres.nvim/", ]]
+		dir = is_macbook and "~/Develop/personal/poimandres.nvim",
 		config = function()
 			require("poimandres").setup({
 				disable_background = true,
@@ -19,7 +52,7 @@ return {
 			})
 		end,
 		init = function()
-			vim.cmd([[colorscheme poimandres]])
+			vim.cmd("colorscheme poimandres")
 		end,
 	},
 	"nvim-lua/plenary.nvim",
@@ -118,6 +151,12 @@ return {
 	"tamago324/nlsp-settings.nvim", -- language server settings defined in json for
 	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
 	"jose-elias-alvarez/typescript.nvim",
+	{
+		"lvimuser/lsp-inlayhints.nvim",
+		config = function()
+			require("lsp-inlayhints").setup()
+		end,
+	},
 
 	-- Code actions
 	{
@@ -165,12 +204,27 @@ return {
 		"nvim-lualine/lualine.nvim",
 	},
 
-	-- Hop
+	-- Leap
 	{
-		"phaazon/hop.nvim",
-		branch = "v1", -- optional but strongly recommended
+		"ggandor/leap.nvim",
+		dependencies = "tpope/vim-repeat",
 		config = function()
-			require("hop").setup({ keys = "ntesiroahdmvkgjblpufyw" })
+			require("leap").add_default_mappings()
+			require("leap").opts.labels = { "n", "t", "e", "s", "i", "r", "o", "a", "h", "d", "m", "v" }
+		end,
+	},
+	{
+		"ggandor/flit.nvim",
+		config = function()
+			require("flit").setup({
+				keys = { f = "f", F = "F", t = "t", T = "T" },
+				-- A string like "nv", "nvo", "o", etc.
+				labeled_modes = "nvo",
+				multiline = true,
+				-- Like `leap`s similar argument (call-specific overrides).
+				-- E.g.: opts = { equivalence_classes = {} }
+				opts = {},
+			})
 		end,
 	},
 

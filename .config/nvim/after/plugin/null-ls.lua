@@ -10,8 +10,6 @@ local diagnostics = null_ls.builtins.diagnostics
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
 local code_actions = null_ls.builtins.code_actions
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -20,24 +18,26 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.black,
 
-		diagnostics.eslint_d,
+		diagnostics.eslint,
 		diagnostics.flake8,
 
-		code_actions.eslint_d,
+		code_actions.eslint,
 
-    require("typescript.extensions.null-ls.code-actions"),
+		require("typescript.extensions.null-ls.code-actions"),
 	},
 	-- Autoformat on save
-	on_attach = function(client, bufnr)
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format()
-				end,
-			})
-		end
-	end,
+	--[[ on_attach = function(client, bufnr) ]]
+	--[[ 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {}) ]]
+	--[[]]
+	--[[ 	if client.server_capabilities.documentFormattingProvider then ]]
+	--[[ 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr }) ]]
+	--[[ 		vim.api.nvim_create_autocmd("BufWritePre", { ]]
+	--[[ 			group = augroup, ]]
+	--[[ 			buffer = bufnr, ]]
+	--[[ 			callback = function() ]]
+	--[[ 				vim.lsp.buf.format() ]]
+	--[[ 			end, ]]
+	--[[ 		}) ]]
+	--[[ 	end ]]
+	--[[ end, ]]
 })

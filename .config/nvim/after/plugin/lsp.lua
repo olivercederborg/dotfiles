@@ -20,6 +20,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
 	"tsserver",
 	"lua_ls",
+	"eslint",
 	"rust_analyzer",
 })
 
@@ -34,6 +35,34 @@ lsp.configure("lua_ls", {
 	},
 })
 
+lsp.configure("tsserver", {
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = false,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = false,
+				includeInlayVariableTypeHints = false,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = false,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
+})
 local cmp = require("cmp")
 
 lsp.setup_nvim_cmp({
@@ -129,6 +158,35 @@ local disabled_client_formatters = {
 	"tsserver",
 }
 
+local function filter(arr, fn)
+	if type(arr) ~= "table" then
+		return arr
+	end
+
+	local filtered = {}
+	for k, v in pairs(arr) do
+		if fn(v, k, arr) then
+			table.insert(filtered, v)
+		end
+	end
+
+	return filtered
+end
+
+local function filterReactDTS(value)
+	return string.match(value.filename, "react/index.d.ts") == nil
+end
+
+local function on_list(options)
+	local items = options.items
+	if #items > 1 then
+		items = filter(items, filterReactDTS)
+	end
+
+	vim.fn.setqflist({}, " ", { title = options.title, items = items, context = options.context })
+	vim.api.nvim_command("cfirst") -- or maybe you want 'copen' instead of 'cfirst'
+end
+
 lsp.on_attach(function(client, bufnr)
 	-- Autoformat on save
 	--[[ local augroup = vim.api.nvim_create_augroup("LspFormatting", {}) ]]
@@ -148,7 +206,7 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.declaration()
 	end, opts)
 	vim.keymap.set("n", "gd", function()
-		vim.lsp.buf.definition()
+		vim.lsp.buf.definition({ on_list = on_list })
 	end, opts)
 	vim.keymap.set("n", "gh", function()
 		vim.lsp.buf.hover()
