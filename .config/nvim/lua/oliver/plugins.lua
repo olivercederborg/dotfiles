@@ -3,40 +3,6 @@ local fn = vim.fn
 local is_macbook = vim.trim(fn.system("hostname")) == "MacBook-Pro-tilhrende-Oliver-2.local"
 
 return {
-	--[[ { ]]
-	--[[ 	"ellisonleao/gruvbox.nvim", ]]
-	--[[ 	priority = 1000, ]]
-	--[[ 	config = function() ]]
-	--[[ 		-- setup must be called before loading the colorscheme ]]
-	--[[ 		-- Default options: ]]
-	--[[ 		require("gruvbox").setup({ ]]
-	--[[ 			undercurl = true, ]]
-	--[[ 			underline = true, ]]
-	--[[ 			bold = true, ]]
-	--[[ 			italic = { ]]
-	--[[ 				strings = true, ]]
-	--[[ 				comments = true, ]]
-	--[[ 				operators = false, ]]
-	--[[ 				folds = true, ]]
-	--[[ 			}, ]]
-	--[[ 			strikethrough = true, ]]
-	--[[ 			invert_selection = false, ]]
-	--[[ 			invert_signs = false, ]]
-	--[[ 			invert_tabline = false, ]]
-	--[[ 			invert_intend_guides = false, ]]
-	--[[ 			inverse = true, -- invert background for search, diffs, statuslines and errors ]]
-	--[[ 			contrast = "", -- can be "hard", "soft" or empty string ]]
-	--[[ 			palette_overrides = {}, ]]
-	--[[ 			overrides = {}, ]]
-	--[[ 			dim_inactive = false, ]]
-	--[[ 			transparent_mode = true, ]]
-	--[[ 		}) ]]
-	--[[ 	end, ]]
-	--[[ 	init = function() ]]
-	--[[ 		vim.cmd("colorscheme gruvbox") ]]
-	--[[ 	end, ]]
-	--[[ }, ]]
-
 	{
 		"olivercederborg/poimandres.nvim",
 		lazy = false,
@@ -83,6 +49,15 @@ return {
 		end,
 	},
 	"fedepujol/move.nvim",
+	-- Lua
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				width = 150,
+			},
+		},
+	},
 
 	-- Treesitter
 	{
@@ -106,20 +81,6 @@ return {
 	"hrsh7th/cmp-nvim-lua",
 	"nvim-lua/completion-nvim",
 	"onsails/lspkind.nvim",
-
-	-- Manage buffers
-	{
-		"matbme/JABS.nvim",
-		lazy = true,
-		config = function()
-			require("jabs").setup({
-				position = "center", -- center, corner. Default corner
-				width = 80, -- default 50
-				height = 20, -- default 10
-				border = "none",
-			})
-		end,
-	},
 
 	-- Snippets
 	"L3MON4D3/LuaSnip",
@@ -182,11 +143,6 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 	},
-	--[[ { ]]
-	--[[ 	"kyazdani42/nvim-tree.lua", ]]
-	--[[ 	lazy = true, ]]
-	--[[ 	tag = "nightly", -- optional, updated every week. (see issue #1193) ]]
-	--[[ }, ]]
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", lazy = true },

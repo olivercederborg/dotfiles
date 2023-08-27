@@ -129,7 +129,6 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 map("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 
 -- Buffer management
-map("n", "<leader>b", ":JABSOpen<CR>", opts)
 map("n", "<leader>x", ":BufOnly<CR>", opts)
 
 -- NvimTree
