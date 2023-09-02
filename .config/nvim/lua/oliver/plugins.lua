@@ -184,6 +184,8 @@ return {
 		end,
 	},
 
+	{ "chrisgrieser/nvim-spider", lazy = true },
+
 	-- Issues and errors
 	{
 		"folke/trouble.nvim",
