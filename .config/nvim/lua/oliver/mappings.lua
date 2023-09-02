@@ -53,8 +53,8 @@ map({ "n", "x", "o" }, "l", "i", opts)
 map({ "n", "x", "o" }, "L", "I", opts)
 
 -- Faster navigation
-map({ "n", "x", "o" }, "N", "5j", opts)
-map({ "n", "x", "o" }, "E", "5k", opts)
+map({ "n", "x", "o" }, "N", "5jzz", opts)
+map({ "n", "x", "o" }, "E", "5kzz", opts)
 map({ "n", "x", "o" }, "K", "^", opts)
 map({ "n", "x", "o" }, "I", "$", opts)
 
