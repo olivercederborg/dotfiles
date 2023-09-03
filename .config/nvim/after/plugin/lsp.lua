@@ -184,7 +184,7 @@ local function on_list(options)
 	end
 
 	vim.fn.setqflist({}, " ", { title = options.title, items = items, context = options.context })
-	vim.api.nvim_command("cfirst") -- or maybe you want 'copen' instead of 'cfirst'
+	vim.api.nvim_command("copen") -- or maybe you want 'copen' instead of 'cfirst'
 end
 
 lsp.on_attach(function(client, bufnr)
