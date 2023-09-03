@@ -17,9 +17,9 @@ gui:
         optionsTextColor:
             - blue
         selectedLineBgColor:
-            - blue # set to `default` to have no background colour
+            - reverse
         selectedRangeBgColor:
-            - blue
+            - reverse
         cherryPickedCommitBgColor:
             - cyan
         cherryPickedCommitFgColor:
