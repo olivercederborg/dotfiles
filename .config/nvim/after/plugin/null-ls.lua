@@ -18,26 +18,27 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.black,
 
-		diagnostics.eslint,
+		diagnostics.eslint_d,
 		diagnostics.flake8,
 
-		code_actions.eslint,
+		code_actions.eslint_d,
 
 		require("typescript.extensions.null-ls.code-actions"),
 	},
+
 	-- Autoformat on save
-	--[[ on_attach = function(client, bufnr) ]]
-	--[[ 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {}) ]]
-	--[[]]
-	--[[ 	if client.server_capabilities.documentFormattingProvider then ]]
-	--[[ 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr }) ]]
-	--[[ 		vim.api.nvim_create_autocmd("BufWritePre", { ]]
-	--[[ 			group = augroup, ]]
-	--[[ 			buffer = bufnr, ]]
-	--[[ 			callback = function() ]]
-	--[[ 				vim.lsp.buf.format() ]]
-	--[[ 			end, ]]
-	--[[ 		}) ]]
-	--[[ 	end ]]
-	--[[ end, ]]
+	on_attach = function(client, bufnr)
+		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+		if client.server_capabilities.documentFormattingProvider then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format()
+				end,
+			})
+		end
+	end,
 })

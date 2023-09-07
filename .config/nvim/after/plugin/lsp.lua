@@ -188,18 +188,6 @@ local function on_list(options)
 end
 
 lsp.on_attach(function(client, bufnr)
-	-- Autoformat on save
-	--[[ local augroup = vim.api.nvim_create_augroup("LspFormatting", {}) ]]
-	--[[ if client.server_capabilities.documentformattingprovider then ]]
-	--[[ 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr }) ]]
-	--[[ 	vim.api.nvim_create_autocmd("bufwritepre", { ]]
-	--[[ 		group = augroup, ]]
-	--[[ 		buffer = bufnr, ]]
-	--[[ 		callback = function() ]]
-	--[[ 			vim.lsp.buf.format({ bufnr = bufnr }) ]]
-	--[[ 		end, ]]
-	--[[ 	}) ]]
-	--[[ end ]]
 	local opts = { remap = false, buffer = bufnr }
 
 	vim.keymap.set("n", "gD", function()
@@ -249,7 +237,3 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
-vim.diagnostic.config({
-	virtual_text = true,
-})

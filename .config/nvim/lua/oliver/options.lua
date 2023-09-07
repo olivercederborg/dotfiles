@@ -35,7 +35,7 @@ set.foldcolumn = "1"
 set.numberwidth = 4 -- set number column width to 2 {default 4}
 set.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 set.wrap = true -- display lines as one long line
-set.scrolloff = 8 -- is one of my fav
-set.sidescrolloff = 8
+set.scrolloff = 10 -- is one of my fav
+set.sidescrolloff = 10
 set.list = true
 -- set.listchars:append "eol:↴"

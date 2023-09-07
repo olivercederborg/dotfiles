@@ -132,7 +132,7 @@ return {
 	},
 
 	-- Dress up the normal ui
-	{ "stevearc/dressing.nvim", event = "VeryLazy" },
+	{ "stevearc/dressing.nvim", lazy = true },
 
 	-- NeoTree
 	{
@@ -241,7 +241,7 @@ return {
 		},
 		config = function()
 			vim.g.lazygit_floating_window_scaling_factor = 0.85 -- scaling factor for floating window
-			vim.g.lazygit_floating_window_border_chars = { " ", " ", " ", " ", " ", " ", " ", " " } -- customize lazygit popup window border characters
+			vim.g.lazygit_floating_window_border_chars = { " ", " ", " ", " ", " ", " ", " ", " " } -- customize lazygit popup window border characters.
 		end,
 	},
 
