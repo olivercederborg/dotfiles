@@ -17,7 +17,7 @@ gui:
         optionsTextColor:
             - blue
         selectedLineBgColor:
-            - reverse
+            - reverse # test
         selectedRangeBgColor:
             - reverse
         cherryPickedCommitBgColor:
