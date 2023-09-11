@@ -55,6 +55,10 @@ return {
 		opts = {
 			window = {
 				width = 150,
+				backdrop = 1,
+			},
+			plugins = {
+				gitsigns = { enabled = true },
 			},
 		},
 	},
@@ -132,7 +136,7 @@ return {
 	},
 
 	-- Dress up the normal ui
-	{ "stevearc/dressing.nvim", lazy = true },
+	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 
 	-- NeoTree
 	{
