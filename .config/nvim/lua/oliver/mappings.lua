@@ -11,7 +11,7 @@ vim.g.mapleader = " "
 map("n", "<C-s>", ":up<CR>", opts)
 
 -- Format
-map("n", "<leader>fm", ":Format<CR>", opts)
+-- map("n", "<leader>fm", ":Format<CR>", opts)
 
 -- Better window navigations
 map("n", "<C-k>", "<C-w>h", opts)
@@ -31,6 +31,9 @@ map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Forward retrace movements
+map("n", "<C-m>", "<C-i>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -58,8 +61,6 @@ map({ "n", "x", "o" }, "E", "5kzz", opts)
 map({ "n", "x", "o" }, "K", "^", opts)
 map({ "n", "x", "o" }, "I", "$", opts)
 
--- Forward retrace movements
-map("n", "<C-m>", "<C-i>", opts)
 
 -- Previous search result
 map({ "n", "v", "x", "o" }, "H", "N", opts)
