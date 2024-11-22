@@ -179,10 +179,9 @@ gui:
   # Default size for focused window. Window size can be changed from within Lazygit with '+' and '_' (but this won't change the default).
   # One of: 'normal' (default) | 'half' | 'full'
   windowSize: normal
-
   # Window border style.
   # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
-  border: rounded
+  border: hidden
 
   # If true, show a seriously epic explosion animation when nuking the working tree.
   animateExplosion: true
@@ -455,8 +454,8 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    nextMatch: "h"
-    prevMatch: "H"
+    # nextMatch: "h"
+    # prevMatch: "H"
     startSearch: /
     optionMenu: x
     optionMenu-alt1: "?"
