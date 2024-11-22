@@ -39,18 +39,21 @@
     "git_status": true
   },
   "assistant": {
+    "show_hints": false,
     "dock": "right",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "model": "claude-3-5-sonnet-latest"
     },
     "default_height": 340.0,
     "enabled": true,
     "version": "2",
-    "default_width": 500
+    "default_width": 700,
+    "enable_experimental_live_diffs": true
   },
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
+    "show_background": false
   },
   "diagnostics": {
     "include_warnings": true
@@ -71,22 +74,31 @@
   "project_panel": {
     "dock": "right",
     "button": false,
-    "default_width": 300,
+    "default_width": 500,
     "auto_fold_dirs": true,
     "folder_icons": false,
     "scrollbar": {
       "show": "auto"
+    },
+    "indent_guides": {
+      "show": "never"
     }
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.5
   },
   "always_treat_brackets_as_autoclosed": true,
   "restore_on_startup": "last_workspace",
   "auto_signature_help": false,
+  "expand_excerpt_lines": 5,
+  "unnecessary_code_fade": 0.4,
+  "show_completions_on_input": true,
   "journal": {
     "hour_format": "hour24"
   },
   "centered_layout": {
     "left_padding": 0.2,
-    "right_padding": 0.2
+    "right_padding": 0
   },
   "indent_guides": {
     "enabled": false,
@@ -115,10 +127,12 @@
   "format_on_save": "on",
 
   "preview_tabs": {
-    "enable_preview_from_code_navigation": true
+    // "enable_preview_from_code_navigation": true,
+    // "enable_preview_from_file_finder": true
   },
   "git": {
-    "git_gutter": "hide",
+    "git_gutter": "tracked_files",
+    "gutter_debounce": 1000,
     "inline_blame": {
       "delay_ms": 3000,
       "enabled": true,
@@ -128,9 +142,15 @@
   "collaboration_panel": {
     "button": false
   },
+  "file_finder": {
+    "modal_max_width": "medium"
+  },
   "show_call_status_icon": false,
   "drop_target_size": 0.1,
   "lsp": {
+    "deno": {
+      "enable": false
+    },
     "rust-analyzer": {
       "checkOnSave": {
         "allTargets": false
@@ -146,44 +166,44 @@
       }
     },
     "eslint": {
-      "validate": [
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-        "html",
-        "markdown",
-        "json",
-        "jsonc",
-        "yaml",
-        "toml",
-        "xml",
-        "gql",
-        "graphql",
-        "astro",
-        "svelte",
-        "css",
-        "less",
-        "scss",
-        "pcss",
-        "postcss"
-      ],
+      // "validate": [
+      //   "javascript",
+      //   "javascriptreact",
+      //   "javascript.jsx",
+      //   "typescript",
+      //   "typescriptreact",
+      //   "typescript.tsx",
+      //   "vue",
+      //   "html",
+      //   "markdown",
+      //   "json",
+      //   "jsonc",
+      //   "yaml",
+      //   "toml",
+      //   "xml",
+      //   "gql",
+      //   "graphql",
+      //   "astro",
+      //   "svelte",
+      //   "css",
+      //   "less",
+      //   "scss",
+      //   "pcss",
+      //   "postcss"
+      // ],
       "settings": {
-        // "rulesCustomizations": [
-        //   { "rule": "style/*", "severity": "off", "fixable": true },
-        //   { "rule": "format/*", "severity": "off", "fixable": true },
-        //   { "rule": "*-indent", "severity": "off", "fixable": true },
-        //   { "rule": "*-spacing", "severity": "off", "fixable": true },
-        //   { "rule": "*-spaces", "severity": "off", "fixable": true },
-        //   { "rule": "*-order", "severity": "off", "fixable": true },
-        //   { "rule": "*-dangle", "severity": "off", "fixable": true },
-        //   { "rule": "*-newline", "severity": "off", "fixable": true },
-        //   { "rule": "*quotes", "severity": "off", "fixable": true },
-        //   { "rule": "*semi", "severity": "off", "fixable": true }
-        // ],
+        "rulesCustomizations": [
+          { "rule": "style/*", "severity": "off", "fixable": true },
+          { "rule": "format/*", "severity": "off", "fixable": true },
+          { "rule": "*-indent", "severity": "off", "fixable": true },
+          { "rule": "*-spacing", "severity": "off", "fixable": true },
+          { "rule": "*-spaces", "severity": "off", "fixable": true },
+          { "rule": "*-order", "severity": "off", "fixable": true },
+          { "rule": "*-dangle", "severity": "off", "fixable": true },
+          { "rule": "*-newline", "severity": "off", "fixable": true },
+          { "rule": "*quotes", "severity": "off", "fixable": true },
+          { "rule": "*semi", "severity": "off", "fixable": true }
+        ],
         "problems": {
           "shortenToSingleLine": true
         }
@@ -199,6 +219,7 @@
       }
     },
     "TypeScript": {
+      // "language_servers": ["deno"],
       "formatter": {
         "code_actions": {
           "source.fixAll.eslint": true
