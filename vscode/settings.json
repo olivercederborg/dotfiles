@@ -1,0 +1,240 @@
+{
+    // APC Styling
+    "apc.electron": {},
+    "apc.stylesheet": {
+        "*": "font-Family: MonoLisa Nerd Font Mono",
+        ".editor .title": "background: transparent !important"
+    },
+    "editor.accessibilitySupport": "off",
+    "editor.linkedEditing": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.fontFamily": "Monolisa Nerd Font Mono",
+    "editor.experimentalInlineEdit.fontFamily": "Monolisa Nerd Font Mono",
+    "editor.codeLensFontFamily": "Monolisa Nerd Font Mono",
+    "chat.editor.fontFamily": "Monolisa Nerd Font Mono",
+    "editor.inlayHints.fontFamily": "Monolisa Nerd Font Mono",
+    "terminal.integrated.fontFamily": "Monolisa Nerd Font Mono",
+    "editor.lineNumbers": "relative",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 50,
+    "terminal.integrated.fontSize": 15,
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "solid",
+    "workbench.statusBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "workbench.tree.indent": 20,
+    "editor.minimap.enabled": false,
+    "editor.glyphMargin": false,
+    "editor.cursorSurroundingLines": 7,
+    "editor.cursorSmoothCaretAnimation": "off",
+    "window.title": "${dirty}${activeEditorShort}",
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "workbench.editor.showTabs": "single",
+    "window.commandCenter": false,
+    "window.titleBarStyle": "custom",
+    "editor.minimap.renderCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.minimap.autohide": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.wordWrap": "on",
+    "editor.wrappingStrategy": "advanced",
+    "workbench.colorTheme": "Vesper",
+    "editor.colorDecorators": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.autofetch": true,
+    "git.confirmNoVerifyCommit": false,
+    "git.confirmSync": false,
+    "git.ignoreMissingGitWarning": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:command"
+    ],
+    "gitlens.hovers.currentLine.over": "line",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "tailwindCSS.experimental.classRegex": [
+        [
+            "cva\\(([^)]*)\\)",
+            "[\"'`]([^\"'`]*).*?[\"'`]"
+        ],
+        [
+            "cn\\(([^)]*)\\)",
+            "[\"'`]([^\"'`]*).*?[\"'`]"
+        ],
+        [
+            "cx\\(([^)]*)\\)",
+            "[\"'`]([^\"'`]*).*?[\"'`]"
+        ]
+    ],
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1",
+        "CW_NEW_SESSION": "1",
+        "Q_NEW_SESSION": "1"
+    },
+    "totalTypeScript.hideAllTips": true,
+    "totalTypeScript.hideBasicTips": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "workbench.productIconTheme": "fluent-icons",
+    "vscode-neovim.ctrlKeysForNormalMode": [
+        "a",
+        "b",
+        "d",
+        "e",
+        "f",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "/",
+        "]"
+    ],
+    "vscode-neovim.ctrlKeysForInsertMode": [
+        "a",
+        "d",
+        "h",
+        "j",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "w"
+    ],
+    "githubPullRequests.pullBranch": "never",
+    "typescript.updateImportsOnFileMove.enabled": "never",
+    "workbench.iconTheme": "chalice-icon-theme",
+    "gitlens.views.remotes.branches.layout": "list",
+    "security.workspace.trust.untrustedFiles": "open",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "editor.wordWrapColumn": 150,
+    "prettier.requireConfig": true,
+    "prettier.semi": false,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "hidden",
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
+    "[prisma]": {
+        "editor.defaultFormatter": "Prisma.prisma"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "git.ignoreRebaseWarning": true,
+    "githubPullRequests.createOnPublishBranch": "never",
+    "update.mode": "manual",
+    "cursor.cmdk.useThemedDiffBackground": true,
+    "cursor.diffs.useCharacterLevelDiffs": true,
+    // Disable the default formatter, use eslint instead
+    "prettier.enable": false,
+    "editor.formatOnSave": false,
+    // Auto fix
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+    // Silent the stylistic rules in you IDE, but still auto fix them
+    "eslint.rules.customizations": [
+        {
+            "rule": "style/*",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "format/*",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-indent",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-spacing",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-spaces",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-order",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-dangle",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*-newline",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*quotes",
+            "severity": "off",
+            "fixable": true
+        },
+        {
+            "rule": "*semi",
+            "severity": "off",
+            "fixable": true
+        }
+    ],
+    // Enable eslint for all supported languages
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "xml",
+        "gql",
+        "graphql",
+        "astro",
+        "svelte",
+        "css",
+        "less",
+        "scss",
+        "pcss",
+        "postcss"
+    ],
+    "eslint.useFlatConfig": true,
+    "workbench.editor.customLabels.patterns": {
+        "**/app/**/*slug*/page.jsx": "🐌 ${dirname(1)}.${extname}",
+        "**/app/**/*slug*/page.tsx": "🐌 ${dirname(1)}.${extname}",
+        "**/app/**/layout.jsx": "🖼️ ${dirname}.${extname}",
+        "**/app/**/layout.tsx": "🖼️ ${dirname}.${extname}",
+        "**/app/**/page.jsx": "📄 ${dirname}.${extname}",
+        "**/app/**/page.tsx": "📄 ${dirname}.${extname}"
+    },
+}
