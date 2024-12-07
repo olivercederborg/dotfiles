@@ -1,0 +1,218 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "n",
+        "command": "editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "j",
+        "command": "-editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "n",
+        "command": "list.focusDown",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
+    },
+    {
+        "key": "j",
+        "command": "-list.focusDown",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
+    },
+    {
+        "key": "n",
+        "command": "list.focusDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "j",
+        "command": "-list.focusDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "e",
+        "command": "list.focusUp",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
+    },
+    {
+        "key": "k",
+        "command": "-list.focusUp",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
+    },
+    {
+        "key": "e",
+        "command": "list.focusUp",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "k",
+        "command": "-list.focusUp",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+w -",
+        "command": "-workbench.action.decreaseViewHeight",
+        "when": "!editorTextFocus && !isAuxiliaryWindowFocusedContext && !terminalFocus && neovim.mode != 'cmdline'"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "list.focusUp",
+        "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "list.focusUp",
+        "when": "inReferenceSearchEditor && neovim.mode == 'normal'"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "list.focusUp",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-vscode-neovim.ctrl-e",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal.e && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.e && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "list.focusAnyUp",
+        "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "quickInput.previous",
+        "when": "inQuickInput && quickInputType == 'quickPick'"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.focusRightGroupWithoutWrap"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.i && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal.i && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+w ctrl+e",
+        "command": "workbench.action.navigateUp",
+    },
+    {
+        "key": "ctrl+w ctrl+n",
+        "command": "workbench.action.navigateDown",
+    },
+    {
+        "key": "ctrl+w ctrl+k",
+        "command": "workbench.action.navigateLeft",
+    },
+    {
+        "key": "ctrl+w ctrl+i",
+        "command": "workbench.action.navigateRight",
+    },
+    {
+        "key": "ctrl+a",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "space r",
+        "command": "editor.action.rename",
+        "when": "editorTextFocus && neovim.mode != 'insert'"
+    },
+    {
+        "key": "space e",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "editorTextFocus && neovim.mode != 'insert'"
+    },
+    {
+        "key": "space z",
+        "command": "workbench.action.toggleCenteredLayout",
+        "when": "editorTextFocus && neovim.mode != 'insert'"
+    },
+    {
+        "key": "cmd+shift+e",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.files.action.focusFilesExplorer"
+            ]
+        },
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+    },
+    {
+        "key": "cmd+shift+e",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+shift+e",
+        "when": "neovim.mode == 'normal' && editorTextFocus && foldersViewVisible",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "tab",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "shift-tab",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.action.navigateBack",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.navigateForward",
+        "when": "editorTextFocus"
+    },
+]
