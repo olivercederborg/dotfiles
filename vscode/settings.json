@@ -1,27 +1,75 @@
 {
     // APC Styling
-    "apc.electron": {},
-    "apc.stylesheet": {
-        "*": "font-Family: MonoLisa Nerd Font Mono",
-        ".editor .title": "background: transparent !important"
+    "apc.electron": {
+        "frame": false,
+        "titleBarStyle": "customButtonsOnHover",
+        "trafficLightPosition": {
+            "x": 10,
+            "y": 12
+        },
+        "customButtonsOnHover": true,
     },
+    "apc.header": {
+        "height": 40
+    },
+    "apc.listRow": {
+        "fontSize": 13.7,
+        "height": 26
+    },
+    "apc.sidebar.titlebar": {
+        "height": 40
+    },
+    "apc.activityBar": {
+        "size": 46,
+        "itemSize": 40,
+        "itemMargin": 6
+    },
+    "apc.font.family": "Geist Mono",
+    "apc.stylesheet": {
+        "*": "font-Family: Geist Mono",
+        ".editor .title": "background: transparent !important",
+        // Command palette
+        ".quick-input-widget": {
+            "position": "fixed !important;",
+            "top": "50% !important;",
+            "left": "50% !important;",
+            "transform": "translate(-50%, -50%) !important;",
+            "max-width": "800px !important;",
+            "width": "60vw !important;",
+            "margin": "0 !important;",
+            "border": "1px solid #3e465b !important",
+        },
+        ".quick-input-widget .quick-input-header": "padding:0px!important;margin-bottom:10px!important;",
+        ".quick-input-widget .monaco-inputbox": "background: #2e3646!important;",
+        ".quick-input-widget .monaco-list-row:hover": "background: #424e65a0 !important;",
+        // Sidebar
+        ".sidebar .title-label": "display: none !important",
+        ".sidebar .composite.title": "display: block !important",
+        ".nosidebar .inline-tabs-placeholder": "width: 75px",
+        ".split-view-view:first-child .pane-header": "display: none !important;",
+        ".monaco-workbench .part.sidebar .title-actions .actions-container": "justify-content: space-evenly !important",
+    },
+    "vscode-neovim.afterInitConfig": [
+        "set cmdheight=10",
+        "set laststatus=2"
+    ],
+    "editor.bracketPairColorization.enabled": false,
     "editor.accessibilitySupport": "off",
     "editor.linkedEditing": true,
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
-    "editor.fontFamily": "Monolisa Nerd Font Mono",
-    "editor.experimentalInlineEdit.fontFamily": "Monolisa Nerd Font Mono",
-    "editor.codeLensFontFamily": "Monolisa Nerd Font Mono",
-    "chat.editor.fontFamily": "Monolisa Nerd Font Mono",
-    "editor.inlayHints.fontFamily": "Monolisa Nerd Font Mono",
-    "terminal.integrated.fontFamily": "Monolisa Nerd Font Mono",
+    "editor.fontFamily": "Geist Mono",
+    "editor.experimentalInlineEdit.fontFamily": "Geist Mono",
+    "editor.codeLensFontFamily": "Geist Mono",
+    "chat.editor.fontFamily": "Geist Mono",
+    "editor.inlayHints.fontFamily": "Geist Mono",
+    "terminal.integrated.fontFamily": "Geist Mono",
     "editor.lineNumbers": "relative",
-    "editor.fontSize": 16,
-    "editor.lineHeight": 50,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 40,
     "terminal.integrated.fontSize": 15,
     "editor.fontLigatures": true,
     "editor.cursorBlinking": "solid",
-    "workbench.statusBar.visible": false,
     "breadcrumbs.enabled": false,
     "workbench.tree.indent": 20,
     "editor.minimap.enabled": false,
@@ -39,7 +87,7 @@
     "editor.stickyScroll.enabled": true,
     "editor.wordWrap": "on",
     "editor.wrappingStrategy": "advanced",
-    "workbench.colorTheme": "Vesper",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.colorDecorators": true,
     "git.openRepositoryInParentFolders": "always",
     "git.autofetch": true,
@@ -122,8 +170,7 @@
         "w"
     ],
     "githubPullRequests.pullBranch": "never",
-    "typescript.updateImportsOnFileMove.enabled": "never",
-    "workbench.iconTheme": "chalice-icon-theme",
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "gitlens.views.remotes.branches.layout": "list",
     "security.workspace.trust.untrustedFiles": "open",
     "typescript.tsdk": "./node_modules/typescript/lib",
@@ -131,7 +178,6 @@
     "prettier.requireConfig": true,
     "prettier.semi": false,
     "workbench.sideBar.location": "right",
-    "workbench.activityBar.location": "hidden",
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
     "[prisma]": {
@@ -237,4 +283,19 @@
         "**/app/**/page.jsx": "📄 ${dirname}.${extname}",
         "**/app/**/page.tsx": "📄 ${dirname}.${extname}"
     },
+    "cursor.cpp.enablePartialAccepts": true,
+    "gitlens.hovers.avatars": false,
+    "gitlens.hovers.enabled": false,
+    "vscode-neovim.NVIM_APPNAME": "nvim",
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.location": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.enablePreview": false,
+    "editor.suggest.insertMode": "replace",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.inlayHints.fontSize": 15,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "vscode-neovim.logOutputToConsole": true,
+    "cursor.composer.renderPillsInsteadOfBlocks": true,
+    "cursor.composer.collapsePaneInputBoxPills": true,
 }
