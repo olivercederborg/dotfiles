@@ -11,6 +11,16 @@
         "when": "editorHoverFocused"
     },
     {
+        "key": "e",
+        "command": "editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "k",
+        "command": "-editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
         "key": "n",
         "command": "list.focusDown",
         "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
@@ -109,20 +119,28 @@
         "command": "selectPrevCodeAction",
         "when": "codeActionMenuVisible"
     },
-    {
-        "key": "ctrl+i",
-        "command": "workbench.action.focusRightGroupWithoutWrap"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert.i && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal.i && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
-    },
+
+    // {
+    //     "key": "ctrl+i",
+    //     "command": "workbench.action.navigateRight",
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    // },
+    // {
+    //     "key": "ctrl+k", 
+    //     "command": "workbench.action.navigateLeft",
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    // },
+    // {
+    //     "key": "ctrl+n",
+    //     "command": "workbench.action.navigateDown",
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    // },
+    // {
+    //     "key": "ctrl+e",
+    //     "command": "workbench.action.navigateUp",
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    // },
+
     {
         "key": "ctrl+w ctrl+e",
         "command": "workbench.action.navigateUp",
@@ -141,12 +159,12 @@
     },
     {
         "key": "ctrl+a",
-        "command": "editor.action.marker.nextInFiles",
+        "command": "editor.action.marker.next",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q",
-        "command": "editor.action.marker.prevInFiles",
+        "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },
     {
@@ -168,51 +186,47 @@
         "command": "workbench.action.toggleCenteredLayout",
         "when": "editorTextFocus && neovim.mode != 'insert'"
     },
+
+    // Sidebar
     {
-        "key": "cmd+shift+e",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "workbench.action.toggleSidebarVisibility",
-                "workbench.files.action.focusFilesExplorer"
-            ]
-        },
-        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+        "key": "shift+cmd+e",
+        "command": "workbench.view.explorer",
+        "when": "!filesExplorerFocus && viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "cmd+shift+e",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "workbench.action.toggleSidebarVisibility",
-                "workbench.action.focusActiveEditorGroup"
-            ]
-        },
-        "when": "sideBarFocus && !inputFocus"
+        "key": "shift+cmd+e",
+        "command": "workbench.action.closeSidebar",
+        "when": "filesExplorerFocus && viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "cmd+shift+e",
-        "when": "neovim.mode == 'normal' && editorTextFocus && foldersViewVisible",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "key": "escape",
+        "command": "workbench.action.closeSidebar",
+        "when": "filesExplorerFocus && viewContainer.workbench.view.explorer.enabled"
     },
-    {
-        "key": "tab",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
-    },
-    {
-        "key": "shift-tab",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
-    },
+
     {
         "key": "ctrl+m",
-        "command": "workbench.action.navigateBack",
+        "command": "workbench.action.navigateForward",
         "when": "editorTextFocus"
     },
     {
         "key": "ctrl+o",
-        "command": "workbench.action.navigateForward",
+        "command": "workbench.action.navigateBack",
         "when": "editorTextFocus"
     },
+    {
+        "key": "shift-cmd-d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    },
+    // {
+    //     "key": "g shift-s",
+    //     "command": "workbench.action.showAllSymbols",
+    //     "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    // },
+    // {
+    //     "key": "g s",
+    //     "command": "workbench.action.gotoSymbol",
+    //     "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    // },
 ]
