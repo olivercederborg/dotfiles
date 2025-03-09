@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
     {
         "key": "n",
@@ -119,28 +118,52 @@
         "command": "selectPrevCodeAction",
         "when": "codeActionMenuVisible"
     },
-
+    // Navigation between window areas
+    {
+        "key": "ctrl+k",
+        "command": "workbench.panel.composerViewPane2.view.focus",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "view == 'workbench.panel.composerViewPane2.view'"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.view.explorer",
+        "when": "editorFocus"
+    },
     // {
-    //     "key": "ctrl+i",
-    //     "command": "workbench.action.navigateRight",
-    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    //     "key": "ctrl+n",
+    //     "command": "workbench.action.terminal.focus",
+    //     "when": "editorFocus && !(suggestWidgetVisible || suggestWidgetHasFocusedSuggestion)"
     // },
     // {
-    //     "key": "ctrl+k", 
-    //     "command": "workbench.action.navigateLeft",
-    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    //     "key": "ctrl+e",
+    //     "command": "workbench.action.focusActiveEditorGroup",
+    //     "when": "terminalFocus"
+    // },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.navigateRight",
+        "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    },
+    // {
+    //     "key": "ctrl+e",
+    //     "command": "workbench.action.navigateUp",
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !inputFocus"
     // },
     // {
     //     "key": "ctrl+n",
     //     "command": "workbench.action.navigateDown",
-    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
+    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !inputFocus && list"
     // },
-    // {
-    //     "key": "ctrl+e",
-    //     "command": "workbench.action.navigateUp",
-    //     "when": "!suggestWidgetVisible && !quickInputVisible && !inReferenceSearchEditor && !listFocus && !inputFocus"
-    // },
-
     {
         "key": "ctrl+w ctrl+e",
         "command": "workbench.action.navigateUp",
@@ -186,7 +209,6 @@
         "command": "workbench.action.toggleCenteredLayout",
         "when": "editorTextFocus && neovim.mode != 'insert'"
     },
-
     // Sidebar
     {
         "key": "shift+cmd+e",
@@ -203,7 +225,6 @@
         "command": "workbench.action.closeSidebar",
         "when": "filesExplorerFocus && viewContainer.workbench.view.explorer.enabled"
     },
-
     {
         "key": "ctrl+m",
         "command": "workbench.action.navigateForward",
@@ -219,14 +240,42 @@
         "command": "editor.action.addSelectionToNextFindMatch",
         "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
     },
-    // {
-    //     "key": "g shift-s",
-    //     "command": "workbench.action.showAllSymbols",
-    //     "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
-    // },
-    // {
-    //     "key": "g s",
-    //     "command": "workbench.action.gotoSymbol",
-    //     "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
-    // },
+    {
+        "key": "ctrl+u",
+        "command": "-vscode-neovim.ctrl-u",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal.u && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-vscode-neovim.ctrl-d",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal.d && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "vscode-neovim.ctrl-d"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "vscode-neovim.ctrl-u"
+    },
+    {
+        "key": "u",
+        "command": "undo",
+        "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "key": "shift+u",
+        "command": "redo",
+        "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "vscode-neovim.lua",
+        "args": [
+            "local vscode = require('vscode')",
+            "vscode.with_insert(function()",
+            "  vscode.action('editor.action.addSelectionToNextFindMatch')",
+            "end)"
+        ]
+    },
 ]
