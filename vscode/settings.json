@@ -1,53 +1,17 @@
 {
-    // APC Styling
-    "apc.electron": {
-        "frame": false,
-        "titleBarStyle": "customButtonsOnHover",
-        "trafficLightPosition": {
-            "x": 10,
-            "y": 12
-        },
-        "customButtonsOnHover": true,
-    },
-    "apc.header": {
-        "height": 40
-    },
-    "apc.listRow": {
-        "fontSize": 13.7,
-        "height": 26
-    },
-    "apc.sidebar.titlebar": {
-        "height": 40
-    },
-    "apc.activityBar": {
-        "size": 46,
-        "itemSize": 40,
-        "itemMargin": 6
-    },
-    "apc.font.family": "Geist Mono",
-    "apc.stylesheet": {
-        "*": "font-Family: Geist Mono",
-        ".editor .title": "background: transparent !important",
-        // Command palette
+    "custom-ui-style.stylesheet": {
         ".quick-input-widget": {
-            "position": "fixed !important;",
-            "top": "50% !important;",
             "left": "50% !important;",
-            "transform": "translate(-50%, -50%) !important;",
-            "max-width": "800px !important;",
-            "width": "60vw !important;",
             "margin": "0 !important;",
-            "border": "1px solid #3e465b !important",
-        },
-        ".quick-input-widget .quick-input-header": "padding:0px!important;margin-bottom:10px!important;",
-        ".quick-input-widget .monaco-inputbox": "background: #2e3646!important;",
-        ".quick-input-widget .monaco-list-row:hover": "background: #424e65a0 !important;",
-        // Sidebar
-        ".sidebar .title-label": "display: none !important",
-        ".sidebar .composite.title": "display: block !important",
-        ".nosidebar .inline-tabs-placeholder": "width: 75px",
-        ".split-view-view:first-child .pane-header": "display: none !important;",
-        ".monaco-workbench .part.sidebar .title-actions .actions-container": "justify-content: space-evenly !important",
+            "max-width": "800px !important;",
+            "position": "fixed !important;",
+            "top": "25% !important;",
+            "transform": "translateX(-50%) !important; translateY(-50%) !important",
+            "width": "60vw !important;",
+            "@media (prefers-color-scheme: dark)": {
+                "border": "1px solid #3c3836 !important;"
+            }
+        }
     },
     "vscode-neovim.afterInitConfig": [
         "set cmdheight=10",
@@ -58,19 +22,17 @@
     "editor.linkedEditing": true,
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
-    "editor.fontFamily": "Geist Mono",
-    "editor.experimentalInlineEdit.fontFamily": "Geist Mono",
-    "editor.codeLensFontFamily": "Geist Mono",
-    "chat.editor.fontFamily": "Geist Mono",
-    "editor.inlayHints.fontFamily": "Geist Mono",
-    "terminal.integrated.fontFamily": "Geist Mono",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.codeLensFontFamily": "JetBrains Mono",
+    "chat.editor.fontFamily": "JetBrains Mono",
+    "editor.inlayHints.fontFamily": "JetBrains Mono",
+    "terminal.integrated.fontFamily": "JetBrains Mono",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 14,
     "editor.lineHeight": 40,
     "terminal.integrated.fontSize": 15,
     "editor.fontLigatures": true,
     "editor.cursorBlinking": "solid",
-    "breadcrumbs.enabled": false,
     "workbench.tree.indent": 20,
     "editor.minimap.enabled": false,
     "editor.glyphMargin": false,
@@ -84,10 +46,8 @@
     "editor.minimap.renderCharacters": false,
     "editor.hideCursorInOverviewRuler": true,
     "editor.minimap.autohide": true,
-    "editor.stickyScroll.enabled": true,
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "bounded",
     "editor.wrappingStrategy": "advanced",
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.colorDecorators": true,
     "git.openRepositoryInParentFolders": "always",
     "git.autofetch": true,
@@ -116,33 +76,20 @@
             "[\"'`]([^\"'`]*).*?[\"'`]"
         ]
     ],
-    "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1",
-        "CW_NEW_SESSION": "1",
-        "Q_NEW_SESSION": "1"
-    },
-    "totalTypeScript.hideAllTips": true,
-    "totalTypeScript.hideBasicTips": true,
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
-    },
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
     },
     "workbench.productIconTheme": "fluent-icons",
     "vscode-neovim.ctrlKeysForNormalMode": [
         "a",
         "b",
         "d",
-        "e",
+        // "e",
         "f",
         "h",
-        "i",
+        // "i",
         "j",
-        "k",
+        // "k",
         "l",
         "m",
         "o",
@@ -174,9 +121,8 @@
     "gitlens.views.remotes.branches.layout": "list",
     "security.workspace.trust.untrustedFiles": "open",
     "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.wordWrapColumn": 150,
+    "editor.wordWrapColumn": 120,
     "prettier.requireConfig": true,
-    "prettier.semi": false,
     "workbench.sideBar.location": "right",
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
@@ -189,9 +135,7 @@
     "update.mode": "manual",
     "cursor.cmdk.useThemedDiffBackground": true,
     "cursor.diffs.useCharacterLevelDiffs": true,
-    // Disable the default formatter, use eslint instead
-    "prettier.enable": false,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     // Auto fix
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
@@ -287,15 +231,32 @@
     "gitlens.hovers.avatars": false,
     "gitlens.hovers.enabled": false,
     "vscode-neovim.NVIM_APPNAME": "nvim",
-    "workbench.statusBar.visible": false,
     "workbench.activityBar.location": "hidden",
     "workbench.layoutControl.enabled": false,
-    "workbench.editor.enablePreview": false,
     "editor.suggest.insertMode": "replace",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.inlayHints.fontSize": 15,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "vscode-neovim.logOutputToConsole": true,
-    "cursor.composer.renderPillsInsteadOfBlocks": true,
     "cursor.composer.collapsePaneInputBoxPills": true,
+    "security.promptForLocalFileProtocolHandling": false,
+    "cursor.cpp.disabledLanguages": [],
+    "workbench.statusBar.visible": false,
+    "cursor.composer.cmdPFilePicker2": true,
+    "editor.stickyScroll.maxLineCount": 3,
+    "workbench.tree.stickyScrollMaxItemCount": 3,
+    "workbench.editor.enablePreview": false,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "GitHub Light",
+    "workbench.preferredDarkColorTheme": "Gruvbox Dark Medium",
+    "javascript.inlayHints.enumMemberValues.enabled": true,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "literals",
+    "editor.inlayHints.enabled": "onUnlessPressed",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "breadcrumbs.enabled": false,
 }
