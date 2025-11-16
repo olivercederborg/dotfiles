@@ -1,18 +1,42 @@
 {
-  "theme": "Vesperish",
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "context7_api_key": "<REDACTED>"
+      }
+    }
+  },
+  "agent_buffer_font_size": 15.0,
+  "agent_servers": {
+    "claude": {
+      "default_mode": "acceptEdits"
+    }
+  },
+  "git_panel": {
+    "sort_by_path": false,
+    "dock": "right"
+  },
+  "icon_theme": "Base Charmed Icons",
+  "theme": {
+    "mode": "system",
+    "light": "",
+    "dark": "Gruvbox Dark Hard"
+  },
   "current_line_highlight": "all",
   "cursor_blink": false,
-  "preferred_line_length": 120,
+  "preferred_line_length": 100,
   "show_wrap_guides": false,
   "soft_wrap": "bounded",
   "vertical_scroll_margin": 7,
   "terminal": {
     "dock": "bottom",
-    "font_family": "JetBrains Mono NL",
+    "font_family": "JetBrains Mono",
     "working_directory": "current_project_directory"
   },
-  "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_weight": 500,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_weight": 400.0,
   "buffer_font_features": {
     // Enable ligatures for connected characters
     "ligatures": true,
@@ -21,13 +45,19 @@
     // Use a slashed zero for better distinction from 'O'
     "zero": true
   },
-  "buffer_font_size": 15,
+  "show_whitespaces": "selection",
+  "whitespace_map": {
+    // Which characters to show when `show_whitespaces` enabled
+    "space": "•",
+    "tab": "⟶" // use "→", for a shorter arrow
+  },
+  "buffer_font_size": 17.0,
   "buffer_line_height": {
-    "custom": 2.7
+    "custom": 2.6
   },
 
-  "ui_font_family": "JetBrains Mono NL",
-  "ui_font_size": 18,
+  "ui_font_family": "JetBrains Mono",
+  "ui_font_size": 18.0,
   "tab_bar": {
     "show": false,
     "show_nav_history_buttons": false
@@ -38,18 +68,54 @@
     "file_icons": true,
     "git_status": true
   },
-  "assistant": {
-    "show_hints": false,
-    "dock": "right",
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-4-sonnet-latest"
+    },
+    "always_allow_tool_actions": true,
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "write",
+    "dock": "left",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-sonnet-4"
     },
     "default_height": 340.0,
     "enabled": true,
-    "version": "2",
-    "default_width": 700,
-    "enable_experimental_live_diffs": true
+    "default_width": 450
   },
   "inlay_hints": {
     "enabled": false,
@@ -58,11 +124,16 @@
   "diagnostics": {
     "include_warnings": true
   },
-  "unstable.ui_density": "comfortable",
+  "unstable.ui_density": "default",
   "features": {
-    "inline_completion_provider": "supermaven"
+    "edit_prediction_provider": "zed"
+  },
+  "edit_predictions": {
+    "enabled_in_text_threads": true,
+    "mode": "eager"
   },
   "telemetry": {
+    "diagnostics": false,
     "metrics": false
   },
   "base_keymap": "VSCode",
@@ -77,6 +148,7 @@
     "default_width": 500,
     "auto_fold_dirs": true,
     "folder_icons": false,
+    "indent_size": 14,
     "scrollbar": {
       "show": "auto"
     },
@@ -85,13 +157,13 @@
     }
   },
   "active_pane_modifiers": {
-    "inactive_opacity": 0.5
+    "inactive_opacity": 0.75
   },
   "always_treat_brackets_as_autoclosed": true,
   "restore_on_startup": "last_workspace",
   "auto_signature_help": false,
   "expand_excerpt_lines": 5,
-  "unnecessary_code_fade": 0.4,
+  "unnecessary_code_fade": 0.5,
   "show_completions_on_input": true,
   "journal": {
     "hour_format": "hour24"
@@ -105,7 +177,9 @@
     "coloring": "indent_aware"
   },
   "scrollbar": {
-    "show": "auto"
+    "show": "auto",
+    "selected_symbol": false,
+    "selected_text": false
   },
   "command_aliases": {
     "W": "w",
@@ -118,15 +192,16 @@
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_multiline_find": true,
     "toggle_relative_line_numbers": true,
     "use_system_clipboard": "always"
   },
 
-  "formatter": "auto",
+  "formatter": "prettier",
   "format_on_save": "on",
 
   "preview_tabs": {
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_code_navigation": true
     // "enable_preview_from_code_navigation": true,
     // "enable_preview_from_file_finder": true
   },
@@ -143,23 +218,24 @@
     "button": false
   },
   "file_finder": {
-    "modal_max_width": "medium"
+    "modal_max_width": "small"
   },
+  "status_bar": {},
   "show_call_status_icon": false,
   "drop_target_size": 0.1,
   "lsp": {
-    "deno": {
-      "enable": false
-    },
-    "rust-analyzer": {
-      "checkOnSave": {
-        "allTargets": false
-      },
-      "check": {
-        "allTargets": false
-        // "overrideCommand": ["cargo", "build", "--message-format=json"]
-      }
-    },
+    // "deno": {
+    //   "enable": false
+    // },
+    // "rust-analyzer": {
+    //   "checkOnSave": {
+    //     "allTargets": false
+    //   },
+    //   "check": {
+    //     "allTargets": false
+    //     // "overrideCommand": ["cargo", "build", "--message-format=json"]
+    //   }
+    // },
     "tailwindcss-language-server": {
       "settings": {
         "classAttributes": ["class", "className", "tv", "cn", "clsx", "styles"]
@@ -212,7 +288,7 @@
   },
   "languages": {
     "Rust": {
-      "show_inline_completions": true,
+      "show_edit_predictions": true,
       "inlay_hints": {
         "show_background": true,
         "enabled": true
@@ -220,54 +296,38 @@
     },
     "TypeScript": {
       // "language_servers": ["deno"],
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
+      // "format_on_save":prettier",
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
       },
       "prettier": {
-        "allowed": false
+        "allowed": true
       }
     },
     "TSX": {
       "prettier": {
-        "allowed": false
+        "allowed": true
       },
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      }
+      "formatter": "prettier"
     },
     "JavaScript": {
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      },
+      "formatter": "prettier",
       "prettier": {
-        "allowed": false
+        "allowed": true
       },
       "code_actions_on_format": {
         "source.fixAll.eslint": true
       }
     },
     "CSS": {
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      },
+      "formatter": "prettier",
       "prettier": {
-        "allowed": false
+        "allowed": true
       }
     },
     "JSON": {
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true
-        }
-      }
+      "formatter": "prettier"
     }
   }
 }
